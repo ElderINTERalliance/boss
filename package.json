@@ -1,21 +1,19 @@
 {
-  "name": "electron-quick-start",
+  "name": "boss",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "a Better Online School System - A series of tools to help students succeed in online environments",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Congressional",
+    "App",
+    "Challenge"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "zsarge",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^10.1.3"
   }
