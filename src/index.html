@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <script src="renderer.js" defer></script>
-  <link rel="stylesheet" href="styles.css" />
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="script-src 'self' 'unsafe-inline';"
-    />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<title>boss</title>
+		<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+		<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+		<script src="renderer.js" defer></script>
+		<link rel="stylesheet" href="styles/main.css"/>
+	</head>
 
-  <body>
-    <div class="sidebar">
-      <a onclick="goToElement('home')">Home</a>
-      <a onclick="goToElement('timer')">Timer</a>
-      <a onclick="goToElement('schedule')">Schedule</a>
-      <a onclick="goToElement('apps')">Apps</a>
-    </div>
+	<body>
+		<div id="home-view">
+			<div id="header">
+				<h1 id="main-label">Shortcuts</h1>
+				<div class="icon" id="new-shortcut"><i class="material-icons-round md-48">add_box</i></div>
+			</div>
 
-    <div class="content">
-      <div id="home">
-        <h1>Boss</h1>
-        <h3>Better Online School System</h3>
-      </div>
+			<div id="shortcuts-list">
+				<div class="shortcut-card-home" data-shortuct-config="web-design.json">
+					<div class="shortcut-card-icons">
+						<div class="icon" id="launch"><i class="material-icons-round md-48">launch</i></div>
+						<div class="icon" id="edit"><i class="material-icons-round md-48">edit</i></div>
+					</div>
+					<div class="shortcut-card-programs">
+						<!-- Sample Icons -->
+						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="shortcut-card-program-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="shortcut-card-program-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+					</div>
+					<h2 class="shortcut-card-label">Web Design</h2>
+				</div>
+		</div>
 
-      <div id="timer">
-        This is where the timer would be.
-        This is a css test page
-        <hr />
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
-          voluptatum magni animi numquam itaque praesentium, alias, nisi ad
-          autem, aliquam porro earum vitae impedit doloribus facilis dolor unde!
-          Laudantium, minima.
-        </p>
-      </div>
+	</body>
 
-      <div id="schedule">
-        This is where the schedule would be
-      </div>
-
-      <div id="apps">
-        This is where the apps would be
-      </div>
-    </div>
-  </body>
 </html>
