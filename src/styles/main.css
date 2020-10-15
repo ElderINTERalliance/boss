@@ -165,7 +165,7 @@ h1 {
 }
 
 #available-programs {
-    width: 100%;
+    width: calc(100% - 50px);
     height: 120px;
     border: 1px solid #000000;
     margin-top: 25px;
