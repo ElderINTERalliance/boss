@@ -1,6 +1,11 @@
 /* Consider Implimenting  */
 /* https://theme.hackclub.com */
 
+/* class specific styles */
+.content {
+  overflow: hidden;
+}
+
 /* Font styles */
 
 body {

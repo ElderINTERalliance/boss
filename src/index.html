@@ -14,14 +14,22 @@
 
   <body>
     <div class="sidebar">
-      <a onclick="goToHome()">Home</a>
-      <a onclick="goToTimer()">Timer</a>
-      <a onclick="goToSchedule()">Schedule</a>
-      <a onclick="goToApps()">Apps</a>
+      <a onclick="goToElement('home')">Home</a>
+      <a onclick="goToElement('timer')">Timer</a>
+      <a onclick="goToElement('schedule')">Schedule</a>
+      <a onclick="goToElement('apps')">Apps</a>
     </div>
 
     <div class="content">
-      <div class="testing">
+      <div id="home">
+        <h1>Boss</h1>
+        <h3>Better Online School System</h3>
+      </div>
+
+      <div id="timer">
+        This is where the timer would be.
+        This is a css test page
+        <hr />
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>
@@ -37,11 +45,12 @@
         </p>
       </div>
 
-      <div class="home">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut laudantium
-        consequuntur perspiciatis neque aspernatur quae hic, assumenda
-        voluptatibus earum, adipisci eius iste nulla. In, reprehenderit eaque?
-        Natus omnis rem ipsa!
+      <div id="schedule">
+        This is where the schedule would be
+      </div>
+
+      <div id="apps">
+        This is where the apps would be
       </div>
     </div>
   </body>
