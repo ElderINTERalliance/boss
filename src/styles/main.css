@@ -16,6 +16,9 @@
     --dark-red: #E16769;
     --light-green: #CBF4CD;
     --dark-green: #44CA42;
+
+    /* Material Design Custom Colors */
+    --mdc-theme-primary: var(--dark-purple);
 }
 
 body, html {
@@ -48,6 +51,9 @@ h1 {
     padding: 25px;
     padding-top: 13px;
     overflow-x: hidden;
+
+    /* Temporary */
+    display: none;
 }
 
 #shortcuts-list {
@@ -106,4 +112,78 @@ h1 {
     width: 24px;
     height: 24px;
     margin: 6.25px;
+}
+
+/* Edit View */
+
+#edit-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#preview-pane {
+    width: calc(50% - 50px);
+    height: 100%;
+    display: flex;
+    position: absolute;
+    left: 0;
+    background-color: var(--background-light);
+    align-items: center;
+    justify-content: center;
+}
+
+#edit-pane {
+    width: 50%;
+    height: 100%;
+    background: var(--foreground-light);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 25px;
+}
+
+.shortcut-card-edit {
+    /* NOTE: The use of purple is just a default, the actual color will be determined by the config */
+    background: var(--light-purple);
+    width: 201px;
+    height: 201px;
+    margin: 25px;
+    margin-left: 12.5px;
+    border: 1.5px solid var(--dark-purple);
+    border-radius: 8px;
+    position: relative;
+}
+
+.shortcut-card-edit > div,h2 {
+    color: var(--dark-purple);
+}
+
+#edit-label {
+    display: block;
+}
+
+#available-programs {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #000000;
+    margin-top: 25px;
+    border-radius: 4px;
+    padding: 13px;
+}
+
+#programs-box-label {
+    transform: translateY(-34px) translateX(-4px);
+    background: var(--foreground-light);
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: .75rem;
+}
+
+/* Material Components TextField Fix */
+.mdc-notched-outline__notch {
+    border-top: 0.5px solid;
+    border-bottom: 0.5px solid;
 }

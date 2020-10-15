@@ -1,42 +1,100 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>boss</title>
-		<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-		<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
-		<script src="renderer.js" defer></script>
-		<link rel="stylesheet" href="styles/main.css"/>
-	</head>
 
-	<body>
-		<div id="home-view">
-			<div id="header">
-				<h1 id="main-label">Shortcuts</h1>
-				<div class="icon" id="new-shortcut"><i class="material-icons-round md-48">add_box</i></div>
-			</div>
+<head>
+	<meta charset="UTF-8" />
+	<title>boss</title>
+	<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+	<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; https://unpkg.com;" /> -->
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com "> -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
 
-			<div id="shortcuts-list">
-				<div class="shortcut-card-home" data-shortuct-config="web-design.json">
-					<div class="shortcut-card-icons">
-						<div class="icon" id="launch"><i class="material-icons-round md-48">launch</i></div>
-						<div class="icon" id="edit"><i class="material-icons-round md-48">edit</i></div>
-					</div>
-					<div class="shortcut-card-programs">
-						<!-- Sample Icons -->
-						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-						<img class="shortcut-card-program-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-						<img class="shortcut-card-program-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					</div>
-					<h2 class="shortcut-card-label">Web Design</h2>
-				</div>
+	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+	<script src="renderer.js" defer></script>
+	<link rel="stylesheet" href="styles/main.css" />
+
+
+</head>
+
+<body>
+	<div id="home-view">
+		<div id="header">
+			<h1 id="main-label">Shortcuts</h1>
+			<div class="icon" id="new-shortcut"><i class="material-icons-round md-48">add_box</i></div>
 		</div>
 
-	</body>
+		<div id="shortcuts-list">
+			<div class="shortcut-card-home" data-shortuct-config="web-design.json">
+				<div class="shortcut-card-icons">
+					<div class="icon" id="launch"><i class="material-icons-round md-48">launch</i></div>
+					<div class="icon" id="edit"><i class="material-icons-round md-48">edit</i></div>
+				</div>
+				<div class="shortcut-card-programs">
+					<!-- Sample Icons -->
+					<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
+					<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
+					<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+					<img class="shortcut-card-program-icon"
+						src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+					<img class="shortcut-card-program-icon"
+						src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+				</div>
+				<h2 class="shortcut-card-label">Web Design</h2>
+			</div>
+		</div>
+	</div>
+
+	<div id="edit-view">
+		<div id="preview-pane">
+			<div class="shortcut-card-edit" data-shortuct-config="web-design.json">
+				<div class="shortcut-card-icons">
+					<div class="icon" id="launch"><i class="material-icons-round md-48">desktop_windows</i></div>
+					<div class="icon" id="edit"><i class="material-icons-round md-48">delete_outline</i></div>
+				</div>
+				<div class="shortcut-card-programs">
+					<!-- Sample Icons -->
+					<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
+					<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
+					<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+					<img class="shortcut-card-program-icon"
+						src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+					<img class="shortcut-card-program-icon"
+						src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+				</div>
+				<h2 class="shortcut-card-label">Web Design</h2>
+			</div>
+		</div>
+		<div id="edit-pane">
+			<h1 id="edit-label">Edit Shortcut</h1>
+			<div class="mdc-text-field mdc-text-field--outlined">
+				<input class="mdc-text-field__input" id="text-field-hero-input">
+				<div class="mdc-notched-outline">
+					<div class="mdc-notched-outline__leading"></div>
+					<div class="mdc-notched-outline__notch">
+						<label for="text-field-hero-input" class="mdc-floating-label">Label</label>
+					</div>
+					<div class="mdc-notched-outline__trailing"></div>
+				</div>
+			</div>
+			
+			<div id="available-programs">
+				<p id="programs-box-label">Available Programs</p>
+			</div>
+		</div>
+		
+	</div>
+
+	<script>
+		mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+	</script>
+
+</body>
 
 </html>
