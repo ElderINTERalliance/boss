@@ -1,4 +1,4 @@
-goToElement("home");
+// goToElement("home");
 
 function goToElement(name) {
 	let content = document.getElementsByClassName("content")[0];
@@ -10,3 +10,11 @@ function goToElement(name) {
 	selected.style.display = 'block';
 	window.scrollTo(0, 0);
 }
+
+function selectProgram(el){
+	el.classList.toggle("program-selected");
+}
+
+document.querySelectorAll(".edit-programs-list-icon").forEach(e => {
+	e.addEventListener("click", selectProgram(this));
+})

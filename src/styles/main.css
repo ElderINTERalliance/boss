@@ -167,10 +167,11 @@ h1 {
 #available-programs {
     width: calc(100% - 50px);
     height: 120px;
-    border: 1px solid #000000;
+    border: 1px solid #3D3F4480;
     margin-top: 25px;
     border-radius: 4px;
     padding: 13px;
+    position: relative;
 }
 
 #programs-box-label {
@@ -180,6 +181,30 @@ h1 {
     padding-left: 4px;
     padding-right: 4px;
     font-size: .75rem;
+    color: #3D3F44;
+}
+
+.edit-programs-list {
+    width: calc(100% - 25px);
+    height: 103px;
+    top: 25px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.edit-programs-list-icon {
+    width: 24px;
+    height: 24px;
+    margin: 6.25px;
+}
+
+.program-selected {
+    background: var(--light-purple);
+    border: 1px solid var(--dark-purple);
+    border-radius: 4px;
+    padding: 3px;
 }
 
 /* Material Components TextField Fix */
