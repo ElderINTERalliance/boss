@@ -50,7 +50,6 @@ h1 {
 }
 
 #home-view {
-	background: var(--window-background);
 	min-height: 100%;
 	margin: 0;
 	padding: 25px;
