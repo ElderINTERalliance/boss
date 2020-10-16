@@ -11,10 +11,8 @@ function goToElement(name) {
 	window.scrollTo(0, 0);
 }
 
-function selectProgram(el){
-	el.classList.toggle("program-selected");
-}
-
-document.querySelectorAll(".edit-programs-list-icon").forEach(e => {
-	e.addEventListener("click", selectProgram(this));
+document.querySelectorAll(".edit-programs-list-icon").forEach(element => {
+	element.addEventListener('click', () => {
+		element.classList.toggle("program-selected");
+	})
 })
