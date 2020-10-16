@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
+const preferences = require("./preferences-handler");
 // Uncomment for release, keep commented for development
 // Menu.setApplicationMenu(false);
 
@@ -11,6 +12,7 @@ function createWindow() {
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
 			nodeIntegration: true,
+			enableRemoteModule: true,
 		},
 	});
 
@@ -18,7 +20,8 @@ function createWindow() {
 	mainWindow.loadFile("index.html");
 
 	// Open the DevTools.
-	// mainWindow.webContents.openDevTools()
+	// Comment for release, keep uncommented for development
+	mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
@@ -26,6 +29,8 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
 	createWindow();
+
+	preferences.setUp();
 
 	app.on("activate", function () {
 		// On macOS it's common to re-create a window in the app when the
