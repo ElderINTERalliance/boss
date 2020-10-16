@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>BOSS</title>
-		<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-		<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
-		<script src="renderer.js" defer></script>
-		<link rel="stylesheet" href="styles/main.css"/>
-	</head>
 
-	<body>
-		<div id="nav-bar">
-			<div class="nav-item">Home</div>
-			<div class="nav-item">Timer</div>
-			<div class="nav-item">Schedule</div>
-			<div class="nav-item">Apps</div>
+<head>
+	<meta charset="UTF-8" />
+	<title>BOSS</title>
+	<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+	<script src="renderer.js" defer></script>
+	<link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+	<div id="nav-bar">
+		<div class="nav-item" onclick="goToElement('home-view')">
+			Home
 		</div>
+		<div class="nav-item" onclick="goToElement('timer')">
+			Timer
+		</div>
+		<div class="nav-item" onclick="goToElement('schedule')">
+			Schedule
+		</div>
+	</div>
+
+	<div id="content">
 		<div id="home-view">
 			<div id="header">
 				<h1 id="main-label">Shortcuts</h1>
@@ -35,14 +45,58 @@
 						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
 						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
 						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-						<img class="shortcut-card-program-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-						<img class="shortcut-card-program-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="shortcut-card-program-icon"
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="shortcut-card-program-icon"
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="shortcut-card-program-icon"
+							src="https://github.githubassets.com/pinned-octocat.svg">
 					</div>
 					<h2 class="shortcut-card-label">Web Design</h2>
 				</div>
+			</div>
 		</div>
 
-	</body>
+		<div id="timer">
+			This is where the timer would be! <br>
+			<br>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo repellat facilis repudiandae
+			sit tenetur neque misssima ratione quam laboriosam, voluptas ab quibusdam qui deleniti optio voluptatum,
+			dignissimos ut repellendus.
+		</div>
+
+		<div id="schedule">
+			This is where the schedule would be! <br>
+			<br> 
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt libero nec urna volutpat, eu
+			volutpat enim viverra. Vestibulum quis velit vitae libero posuere cursus at in ligula. Pellentesque varius
+			viverra risus, eget iaculis felis consequat nec. Nullam sed nunc malesuada, tempor ipsum et, commodo nisi.
+			In auctor finibus lacus, a pharetra tellus pulvinar molestie. Maecenas at porttitor sem. Aliquam sagittis
+			semper nisl id efficitur. Aenean commodo mattis dignissim. Maecenas nec urna ac neque rutrum rutrum sed sed
+			nisi. Mauris malesuada luctus urna, ac blandit sem rhoncus at. Sed posuere nulla est, eget congue augue
+			ultrices vitae. Aenean ac pharetra enim. Quisque ut nisi ipsum. Interdum et malesuada fames ac ante ipsum
+			primis in faucibus. Ut lacinia nisi et purus fringilla, non consectetur elit cursus. Nam varius est in
+			tincidunt venenatis.
+			<br> <br>
+			Curabitur lorem ligula, semper nec dignissim sit amet, rutrum non libero. Interdum et malesuada fames ac
+			ante ipsum primis in faucibus. Aliquam placerat finibus libero. Sed ac est erat. Quisque non mi ipsum.
+			Aliquam quam ex, consequat non bibendum eget, vehicula at ex. Integer lobortis arcu eu orci sodales
+			pulvinar. Donec ac enim nisi. Aliquam convallis lacus nec pretium euismod.
+			<br> <br>
+			Sed eleifend magna libero, vitae fermentum nibh malesuada ut. Fusce id felis at dui porttitor auctor. Nullam
+			et ex eget sapien accumsan scelerisque. Quisque lorem erat, condimentum dignissim nunc et, aliquet blandit
+			augue. Vestibulum congue, quam ut interdum tristique, enim nulla feugiat nulla, in feugiat ante urna ut
+			elit. In ex nulla, tempor eu gravida sit amet, laoreet sit amet quam. Ut egestas ex vel dui pretium
+			accumsan. Nunc vel porta ante.
+			<br> <br>
+			Vestibulum ac nisl tristique, dapibus massa ac, rhoncus purus. Duis elit est, varius sit amet hendrerit id,
+			venenatis nec sapien. Donec ut laoreet odio. Fusce convallis turpis sed consequat interdum. Donec vestibulum
+			arcu quam, nec tincidunt turpis ultricies id. Nunc consectetur a ex in aliquam. Class aptent taciti sociosqu
+			ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas tempor nibh ac mattis tincidunt.
+			Nunc nulla lorem, tincidunt sit amet condimentum a, molestie vitae lorem. Sed eget eros non nisl tempor
+			venenatis. Aenean lacinia purus quis libero dictum, vitae condimentum turpis iaculis.
+		</div>
+	</div>
+</body>
 
 </html>

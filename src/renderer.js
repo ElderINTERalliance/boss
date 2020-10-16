@@ -1,12 +1,12 @@
-// goToElement("home");
+goToElement("home-view");
 
 function goToElement(name) {
-	let content = document.getElementsByClassName("content")[0];
-	let elements = content.getElementsByTagName("div");
+	let content = document.getElementById("content");
+	let elements = content.childNodes;
 	for (let i = 0; i < elements.length; i++) {
-		elements[i].style.display = "none";
+		elements[i].hidden = true;
 	}
 	let selected = document.getElementById(name);
-	selected.style.display = "block";
+	selected.hidden = false
 	window.scrollTo(0, 0);
 }
