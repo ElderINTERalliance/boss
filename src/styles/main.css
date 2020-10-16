@@ -1,109 +1,111 @@
 :root {
-    /* Color Themes */
-    --background-light: #EDF0F8;
-    --foreground-light: #FFFFFF;
-    --background-dark: #141414;
-    --foregorund-dark: #333333;
+	/* Color Themes */
+	--background-light: #edf0f8;
+	--foreground-light: #ffffff;
+	--background-dark: #141414;
+	--foregorund-dark: #333333;
 
-    /* Shortcut Colors */
-    --light-purple: #DFCDFA;
-    --dark-purple: #9D53FD;
-    --light-blue: #C9E1F6;
-    --dark-blue: #48A3F6;
-    --light-yellow: #F4E3CB;
-    --dark-yellow: #F3AD4B;
-    --light-red: #F4D2D2;
-    --dark-red: #E16769;
-    --light-green: #CBF4CD;
-    --dark-green: #44CA42;
+	/* Shortcut Colors */
+	--light-purple: #dfcdfa;
+	--dark-purple: #9d53fd;
+	--light-blue: #c9e1f6;
+	--dark-blue: #48a3f6;
+	--light-yellow: #f4e3cb;
+	--dark-yellow: #f3ad4b;
+	--light-red: #f4d2d2;
+	--dark-red: #e16769;
+	--light-green: #cbf4cd;
+	--dark-green: #44ca42;
 }
 
-body, html {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+body,
+html {
+	font-family: "Montserrat", sans-serif;
+	margin: 0;
+	width: 100%;
+	height: 100%;
 }
 
 h1 {
-    font-size: 36px;
-    color: #3D3F44;
-    display: inline-block;
+	font-size: 36px;
+	color: #3d3f44;
+	display: inline-block;
 }
 
 .icon {
-    display: inline-block;
-    padding: 8px;
+	display: inline-block;
+	padding: 8px;
 }
 
-#new-shortcut > i{
-    color: #3D3F44;
-    cursor: pointer;
+#new-shortcut > i {
+	color: #3d3f44;
+	cursor: pointer;
 }
 
 #home-view {
-    background: #EDF0F8;
-    min-height: 100%;
-    margin: 0;
-    padding: 25px;
-    padding-top: 13px;
-    overflow-x: hidden;
+	background: #edf0f8;
+	min-height: 100%;
+	margin: 0;
+	padding: 25px;
+	padding-top: 13px;
+	overflow-x: hidden;
 }
 
 #shortcuts-list {
-    width: calc(100% + 50px);
-    transform: translateX(-25px);
-    margin-left: 12.5px;
-    margin-right: 12.5px;
-    display: flex;
-    flex-wrap: wrap;
+	width: calc(100% + 50px);
+	transform: translateX(-25px);
+	margin-left: 12.5px;
+	margin-right: 12.5px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .shortcut-card-home {
-    /* NOTE: The use of purple is just a default, the actual color will be determined by the config */
-    background: var(--light-purple);
-    width: 201px;
-    height: 201px;
-    margin: 25px;
-    margin-left: 12.5px;
-    border: 1.5px solid var(--dark-purple);
-    border-radius: 8px;
-    position: relative;
+	/* NOTE: The use of purple is just a default, the actual color will be determined by the config */
+	background: var(--light-purple);
+	width: 201px;
+	height: 201px;
+	margin: 25px;
+	margin-left: 12.5px;
+	border: 1.5px solid var(--dark-purple);
+	border-radius: 8px;
+	position: relative;
 }
 
-.shortcut-card-home > div,h2 {
-    color: var(--dark-purple);
+.shortcut-card-home > div,
+h2 {
+	color: var(--dark-purple);
 }
 
 .shortcut-card-icons {
-    position: absolute;
-    right: 0;
+	position: absolute;
+	right: 0;
 }
 
 .shortcut-card-icons > div > i {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .shortcut-card-label {
-    position: absolute;
-    margin: 12.5px;
-    bottom: 0;
+	position: absolute;
+	margin: 12.5px;
+	bottom: 0;
 }
 
 .shortcut-card-programs {
-    width: 100%;
-    height: 103px;
-    position: absolute;
-    top: 44px;
-    display: flex;
-    margin-left: 6.25px;
-    margin-right: 6.25px;
-    display: flex;
-    flex-wrap: wrap;
+	width: 100%;
+	height: 103px;
+	position: absolute;
+	top: 44px;
+	display: flex;
+	margin-left: 6.25px;
+	margin-right: 6.25px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .shortcut-card-program-icon {
-    width: 24px;
-    height: 24px;
-    margin: 6.25px;
+	width: 24px;
+	height: 24px;
+	margin: 6.25px;
 }
