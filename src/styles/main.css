@@ -198,6 +198,7 @@ h1 {
     width: 24px;
     height: 24px;
     margin: 6.25px;
+    cursor: pointer;
 }
 
 .program-selected {
