@@ -5,10 +5,24 @@ const storage = require("electron-json-storage");
 // `projectName` is referenced in app-drawer-renderer.js
 const projectName = "BOSS-preferences";
 
-const defaultSettings = { foo: "bar" };
+// This is the json that will populate the automatically created file
+const defaultSettings = {
+	"Default-Name": {
+		"Figma": {
+			"icon": "https://www.scdn.co/i/_global/favicon.png",
+			"src": "https://example.com",
+			"protocol": "browser"
+		},
+		"VSCode":{
+			"icon": "https://code.visualstudio.com/favicon.ico",
+			"src": "https://example.com",
+			"protocol": "browser"
+		}
+	}
+};
 
 function createFile() {
-	storage.set(projectName, { foo: "bar" }, function (error) {
+	storage.set(projectName, defaultSettings, function (error) {
 		if (error) throw error;
 	});
 }
