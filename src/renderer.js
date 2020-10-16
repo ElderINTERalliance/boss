@@ -1,3 +1,6 @@
+// This is the main renderer.js, for general use
+
+// Run on page load:
 let homeElement = document.getElementsByClassName("nav-item")[0];
 goToElement("home-view", homeElement);
 

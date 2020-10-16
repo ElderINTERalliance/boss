@@ -10,7 +10,8 @@
 		href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
 		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
-	<script src="renderer.js" defer></script>
+	<script src="renderer.js" async></script>
+	<script src="apps-renderer.js" async></script>
 	<link rel="stylesheet" href="styles/main.css" />
 </head>
 
@@ -19,8 +20,8 @@
 		<div class="nav-item" onclick="goToElement('home-view', this)">
 			Home
 		</div>
-		<div class="nav-item" onclick="goToElement('timer', this)">
-			Timer
+		<div class="nav-item" onclick="goToElement('apps-staging', this)">
+			apps-staging
 		</div>
 		<div class="nav-item" onclick="goToElement('schedule', this)">
 			Schedule
@@ -57,12 +58,10 @@
 			</div>
 		</div>
 
-		<div id="timer">
-			This is where the timer would be! <br>
-			<br>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo repellat facilis repudiandae
-			sit tenetur neque misssima ratione quam laboriosam, voluptas ab quibusdam qui deleniti optio voluptatum,
-			dignissimos ut repellendus.
+		<div id="apps-staging">
+			This is a staging area, where I am testing the functionality related to the home app drawer.
+			<br> <br>
+			<button onclick="openInBrowser()">Click Me!</button>
 		</div>
 
 		<div id="schedule">
