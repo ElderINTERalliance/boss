@@ -1,4 +1,4 @@
-goToElement("home");
+// goToElement("home");
 
 function goToElement(name) {
 	let content = document.getElementsByClassName("content")[0];

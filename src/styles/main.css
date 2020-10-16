@@ -3,7 +3,7 @@
 	--background-light: #edf0f8;
 	--foreground-light: #ffffff;
 	--background-dark: #141414;
-	--foregorund-dark: #333333;
+	--foreground-dark: #333333;
 
 	/* Shortcut Colors */
 	--light-purple: #dfcdfa;
@@ -108,4 +108,25 @@ h2 {
 	width: 24px;
 	height: 24px;
 	margin: 6.25px;
+}
+
+/* Navigation Bar, at the top of the page */
+
+#nav-bar {
+	border: 2px solid;
+	border-color: var(--background-dark);
+	background: var(--background-light);
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	border-spacing: 10px;
+}
+
+.nav-item {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	overflow: hidden;
 }

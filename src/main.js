@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
-Menu.setApplicationMenu(false);
+// Uncomment for release, keep commented for development
+// Menu.setApplicationMenu(false);
 
 function createWindow() {
 	// Create the browser window.
