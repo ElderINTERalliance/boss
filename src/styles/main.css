@@ -5,7 +5,12 @@
 	--background-dark: #141414;
 	--foreground-dark: #333333;
 
-	--window-background: #edf0f8;
+    --window-background: #edf0f8;
+    
+    /* These variables are used by renderer.js 
+       for styling nav elements */
+    --nav-default: #edf0f8;
+    --nav-selected: #f0dede;
 
 	/* Shortcut Colors */
 	--light-purple: #dfcdfa;
@@ -116,7 +121,7 @@ h2 {
 
 #nav-bar {
 	border: 2px solid;
-	border-color: lightgray;
+    border-color: lightgray;
 	background: var(--background-light);
 	display: table;
 	table-layout: fixed;
@@ -126,6 +131,7 @@ h2 {
 }
 
 .nav-item {
+    /* The css for nav items is set by renderer.js */
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;

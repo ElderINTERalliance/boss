@@ -16,13 +16,13 @@
 
 <body>
 	<div id="nav-bar">
-		<div class="nav-item" onclick="goToElement('home-view')">
+		<div class="nav-item" onclick="goToElement('home-view', this)">
 			Home
 		</div>
-		<div class="nav-item" onclick="goToElement('timer')">
+		<div class="nav-item" onclick="goToElement('timer', this)">
 			Timer
 		</div>
-		<div class="nav-item" onclick="goToElement('schedule')">
+		<div class="nav-item" onclick="goToElement('schedule', this)">
 			Schedule
 		</div>
 	</div>
@@ -67,7 +67,7 @@
 
 		<div id="schedule">
 			This is where the schedule would be! <br>
-			<br> 
+			<br>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt libero nec urna volutpat, eu
 			volutpat enim viverra. Vestibulum quis velit vitae libero posuere cursus at in ligula. Pellentesque varius
 			viverra risus, eget iaculis felis consequat nec. Nullam sed nunc malesuada, tempor ipsum et, commodo nisi.
