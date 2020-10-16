@@ -23,9 +23,11 @@ function getUserPreferences() {
 }
 
 // Display User Data
+// __________________________
 // THIS IS RUN AT SCRIPT LOAD
-let drawer = document.getElementById("app-drawer");
-drawer.append(parsePreferences(getUserPreferences()));
+let drawerList = document.getElementById("shortcuts-list")
+drawerList.append(parsePreferences(getUserPreferences()));
+// __________________________
 
 // Takes user preferences, and returns a list
 // of drawers of apps
@@ -39,11 +41,27 @@ function parsePreferences(data) {
 
 function createDrawer(drawerName, drawerContents) {
 	let div = initializeDrawerElement();
+
+	// Add function to Launch all apps
+	let launchAll = div.getElementsByClassName("launch-button")[0];
+	launchAll.onclick = function () {
+		openAllApps(this)
+	};
+
+	// Set Title
 	let title = div.getElementsByClassName("shortcut-card-label")[0];
 	title.textContent = drawerName;
+
+	// Populate drawer with app icons
 	let body = div.getElementsByClassName("shortcut-card-programs")[0];
-	body.append(createListFromIcons(drawerContents));
+	body.append(createDivFromIcons(drawerContents));
 	return div;
+}
+
+function openAllApps(clicked) {
+	let appDrawer = clicked.parentElement.parentElement;
+	let apps = appDrawer.getElementsByClassName("shortcut-card-program-icon")
+	console.log(apps);
 }
 
 function initializeDrawerElement() {
@@ -51,8 +69,8 @@ function initializeDrawerElement() {
 	div.innerHTML += `
 	<div class="shortcut-card-home">
 		<div class="shortcut-card-icons">
-			<div class="icon" id="launch"><i class="material-icons-round md-48">launch</i></div>
-			<div class="icon" id="edit"><i class="material-icons-round md-48">edit</i></div>
+			<div class="icon launch-button" id="launch"><i class="material-icons-round md-48">launch</i></div>
+			<div class="icon edit-button" id="edit"><i class="material-icons-round md-48">edit</i></div>
 		</div>
 		<div class="shortcut-card-programs">
 		</div>
@@ -62,25 +80,27 @@ function initializeDrawerElement() {
 	return div;
 }
 
-function createListFromIcons(icons) {
-	var list = document.createElement("ul");
+function createDivFromIcons(icons) {
+	var div = document.createElement("div");
+	// from the user json, each icon will have
+	// at least a url, app name, src, and protocol
 	Object.keys(icons).forEach((appName) => {
 		let app = icons[appName];
 		let iconURL = app["icon"];
 		let src = app["src"];
 		let protocol = app["protocol"];
-		addApp(createIconElement(iconURL, appName), src, protocol, list);
+		addApp(createIconElement(iconURL, appName), src, protocol, div);
 	});
-	return list;
+	return div;
 }
 
 function createIconElement(url, title = "") {
 	return `<img class="shortcut-card-program-icon" src="${url}" title="${title}"/>`;
 }
 
-function addApp(icon, src, protocol, list) {
-	list.innerHTML += `<li> ${icon} </li>`;
-	list.onclick = function () {
+function addApp(icon, src, protocol, div) {
+	div.innerHTML += `${icon}`;
+	div.onclick = function () {
 		openApp(src, protocol);
 	};
 }

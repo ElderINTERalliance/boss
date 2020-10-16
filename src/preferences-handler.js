@@ -7,17 +7,32 @@ const projectName = "BOSS-preferences";
 
 // This is the json that will populate the automatically created file
 const defaultSettings = {
-	"Default-Name": {
-		"Figma": {
+	"Web Design": {
+		"Spotify": {
 			"icon": "https://www.scdn.co/i/_global/favicon.png",
-			"src": "https://example.com",
+			"src": "https://www.spotify.com/us/",
 			"protocol": "browser"
 		},
 		"VSCode":{
 			"icon": "https://code.visualstudio.com/favicon.ico",
 			"src": "https://example.com",
 			"protocol": "browser"
-		}
+		},
+		"Figma":{
+			"icon": "https://static.figma.com/app/icon/1/favicon.png",
+			"src": "https://www.figma.com",
+			"protocol": "browser"
+		},
+		"Slack":{
+			"icon": "https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png",
+			"src": "https://slack.com",
+			"protocol": "browser"
+		},
+		"Github":{
+			"icon": "https://github.githubassets.com/pinned-octocat.svg",
+			"src": "https://github.com",
+			"protocol": "browser"
+		},
 	}
 };
 

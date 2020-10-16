@@ -5,12 +5,12 @@
 	--background-dark: #141414;
 	--foreground-dark: #333333;
 
-    --window-background: #edf0f8;
-    
-    /* These variables are used by renderer.js 
+	--window-background: #edf0f8;
+
+	/* These variables are used by renderer.js 
        for styling nav elements */
-    --nav-default: #edf0f8;
-    --nav-selected: #f0dede;
+	--nav-default: #edf0f8;
+	--nav-selected: #f0dede;
 
 	/* Shortcut Colors */
 	--light-purple: #dfcdfa;
@@ -108,6 +108,7 @@ h2 {
 	margin-right: 6.25px;
 	display: flex;
 	flex-wrap: wrap;
+	cursor: pointer;
 }
 
 .shortcut-card-program-icon {
@@ -120,7 +121,7 @@ h2 {
 
 #nav-bar {
 	border: 2px solid;
-    border-color: lightgray;
+	border-color: lightgray;
 	background: var(--background-light);
 	display: table;
 	table-layout: fixed;
@@ -130,12 +131,12 @@ h2 {
 }
 
 .nav-item {
-    /* The css for nav items is set by renderer.js */
+	/* The css for nav items is set by renderer.js */
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-    overflow: hidden;
-    cursor: pointer;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 /* 
