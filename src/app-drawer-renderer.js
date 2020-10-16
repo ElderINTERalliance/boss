@@ -25,7 +25,9 @@ function getUserPreferences() {
 // Display User Data
 // __________________________
 // THIS IS RUN AT SCRIPT LOAD
-let drawerList = document.getElementById("shortcuts-list")
+// This reads the user data, and appends it to the home tab,
+// in the form of app drawers
+let drawerList = document.getElementById("shortcuts-list");
 drawerList.append(parsePreferences(getUserPreferences()));
 // __________________________
 
@@ -45,7 +47,7 @@ function createDrawer(drawerName, drawerContents) {
 	// Add function to Launch all apps
 	let launchAll = div.getElementsByClassName("launch-button")[0];
 	launchAll.onclick = function () {
-		openAllApps(this)
+		openAllApps(this);
 	};
 
 	// Set Title
@@ -60,8 +62,10 @@ function createDrawer(drawerName, drawerContents) {
 
 function openAllApps(clicked) {
 	let appDrawer = clicked.parentElement.parentElement;
-	let apps = appDrawer.getElementsByClassName("shortcut-card-program-icon")
-	console.log(apps);
+	let apps = appDrawer.getElementsByClassName("shortcut-card-program-icon");
+	Object.values(apps).forEach((icon) => {
+		icon.click();
+	});
 }
 
 function initializeDrawerElement() {
@@ -89,20 +93,14 @@ function createDivFromIcons(icons) {
 		let iconURL = app["icon"];
 		let src = app["src"];
 		let protocol = app["protocol"];
-		addApp(createIconElement(iconURL, appName), src, protocol, div);
+		div.innerHTML += createIconElement(iconURL, appName, src, protocol);
 	});
 	return div;
 }
 
-function createIconElement(url, title = "") {
-	return `<img class="shortcut-card-program-icon" src="${url}" title="${title}"/>`;
-}
-
-function addApp(icon, src, protocol, div) {
-	div.innerHTML += `${icon}`;
-	div.onclick = function () {
-		openApp(src, protocol);
-	};
+function createIconElement(url, title = "", src, protocol) {
+	let onclick = `onclick="openApp('${src}', '${protocol}')"`;
+	return `<img class="shortcut-card-program-icon" ${onclick} src="${url}" title="${title}"/>`;
 }
 
 function openApp(src, protocol) {

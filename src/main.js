@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const preferences = require("./preferences-handler");
 // Uncomment for release, keep commented for development
-// Menu.setApplicationMenu(false);
+Menu.setApplicationMenu(false);
 
 function createWindow() {
 	// Create the browser window.
@@ -21,7 +21,7 @@ function createWindow() {
 
 	// Open the DevTools.
 	// Comment for release, keep uncommented for development
-	mainWindow.webContents.openDevTools();
+	// mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished

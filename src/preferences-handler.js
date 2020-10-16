@@ -33,6 +33,11 @@ const defaultSettings = {
 			"src": "https://github.com",
 			"protocol": "browser"
 		},
+		"Chrome":{
+			"icon": "https://www.google.com/chrome/static/images/favicons/favicon-96x96.png",
+			"src": "https://www.google.com",
+			"protocol": "browser"
+		},
 	}
 };
 
