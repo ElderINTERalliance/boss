@@ -9,12 +9,14 @@
 	<!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com "> -->
 	<link
 		href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
-		rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet" />
 	<script src="renderer.js" defer></script>
 	<script src="app-drawer-renderer.js" defer></script>
+	<script src="" defer></script>
 	<link rel="stylesheet" href="styles/main.css" />
-	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+		rel="stylesheet" />
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </head>
 
@@ -22,6 +24,9 @@
 	<div id="nav-bar">
 		<div class="nav-item" onclick="goToElement('home-view', this)">
 			Home
+		</div>
+		<div class="nav-item" onclick="goToElement('staging', this)">
+			Staging
 		</div>
 		<div class="nav-item" onclick="goToElement('schedule', this)">
 			Schedule
@@ -32,10 +37,20 @@
 	</div>
 
 	<div id="content">
+		<div id="staging">
+			This is just a working pane. <br />
+			<button onclick="editApps()">Display User Data</button>
+			<pre>
+				<div id="user-json"></div>
+			</pre>
+		</div>
+
 		<div id="home-view">
 			<div id="header">
 				<h1 id="main-label">Shortcuts</h1>
-				<div class="icon" id="new-shortcut"><i class="material-icons-round md-48">add_box</i></div>
+				<div class="icon" id="new-shortcut">
+					<i class="material-icons-round md-48">add_box</i>
+				</div>
 			</div>
 
 			<div id="shortcuts-list">
@@ -47,20 +62,24 @@
 			<div id="preview-pane">
 				<div class="shortcut-card-edit" data-shortuct-config="web-design.json">
 					<div class="shortcut-card-icons">
-						<div class="icon" id="launch"><i class="material-icons-round md-48">desktop_windows</i></div>
-						<div class="icon" id="edit"><i class="material-icons-round md-48">delete_outline</i></div>
+						<div class="icon" id="launch">
+							<i class="material-icons-round md-48">desktop_windows</i>
+						</div>
+						<div class="icon" id="edit">
+							<i class="material-icons-round md-48">delete_outline</i>
+						</div>
 					</div>
 					<div class="shortcut-card-programs">
 						<!-- Sample Icons -->
-						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="shortcut-card-program-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="shortcut-card-program-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
 						<img class="shortcut-card-program-icon"
-							src="https://github.githubassets.com/pinned-octocat.svg">
+							src="https://github.githubassets.com/pinned-octocat.svg" />
 					</div>
 					<h2 class="shortcut-card-label">Web Design</h2>
 				</div>
@@ -68,7 +87,7 @@
 			<div id="edit-pane">
 				<h1 id="edit-label">Edit Shortcut</h1>
 				<div class="mdc-text-field mdc-text-field--outlined">
-					<input class="mdc-text-field__input" id="text-field-hero-input">
+					<input class="mdc-text-field__input" id="text-field-hero-input" />
 					<div class="mdc-notched-outline">
 						<div class="mdc-notched-outline__leading"></div>
 						<div class="mdc-notched-outline__notch">
@@ -82,56 +101,56 @@
 					<p id="programs-box-label">Available Programs</p>
 					<div class="edit-programs-list">
 						<!-- Sample Icons -->
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
 						<img class="edit-programs-list-icon program-selected"
-							src="https://code.visualstudio.com/favicon.ico">
+							src="https://code.visualstudio.com/favicon.ico" />
 						<img class="edit-programs-list-icon program-selected"
-							src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
 						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
 						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
 					</div>
 				</div>
 			</div>
@@ -139,39 +158,60 @@
 
 		<!-- Todo: Relocate This? -->
 		<script>
-			mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+			mdc.textField.MDCTextField.attachTo(
+				document.querySelector(".mdc-text-field")
+			);
 		</script>
 
 		<div id="schedule">
-			This is where the schedule would be! <br>
-			<br>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt libero nec urna volutpat, eu
-			volutpat enim viverra. Vestibulum quis velit vitae libero posuere cursus at in ligula. Pellentesque varius
-			viverra risus, eget iaculis felis consequat nec. Nullam sed nunc malesuada, tempor ipsum et, commodo nisi.
-			In auctor finibus lacus, a pharetra tellus pulvinar molestie. Maecenas at porttitor sem. Aliquam sagittis
-			semper nisl id efficitur. Aenean commodo mattis dignissim. Maecenas nec urna ac neque rutrum rutrum sed sed
-			nisi. Mauris malesuada luctus urna, ac blandit sem rhoncus at. Sed posuere nulla est, eget congue augue
-			ultrices vitae. Aenean ac pharetra enim. Quisque ut nisi ipsum. Interdum et malesuada fames ac ante ipsum
-			primis in faucibus. Ut lacinia nisi et purus fringilla, non consectetur elit cursus. Nam varius est in
-			tincidunt venenatis.
-			<br> <br>
-			Curabitur lorem ligula, semper nec dignissim sit amet, rutrum non libero. Interdum et malesuada fames ac
-			ante ipsum primis in faucibus. Aliquam placerat finibus libero. Sed ac est erat. Quisque non mi ipsum.
-			Aliquam quam ex, consequat non bibendum eget, vehicula at ex. Integer lobortis arcu eu orci sodales
-			pulvinar. Donec ac enim nisi. Aliquam convallis lacus nec pretium euismod.
-			<br> <br>
-			Sed eleifend magna libero, vitae fermentum nibh malesuada ut. Fusce id felis at dui porttitor auctor. Nullam
-			et ex eget sapien accumsan scelerisque. Quisque lorem erat, condimentum dignissim nunc et, aliquet blandit
-			augue. Vestibulum congue, quam ut interdum tristique, enim nulla feugiat nulla, in feugiat ante urna ut
-			elit. In ex nulla, tempor eu gravida sit amet, laoreet sit amet quam. Ut egestas ex vel dui pretium
-			accumsan. Nunc vel porta ante.
-			<br> <br>
-			Vestibulum ac nisl tristique, dapibus massa ac, rhoncus purus. Duis elit est, varius sit amet hendrerit id,
-			venenatis nec sapien. Donec ut laoreet odio. Fusce convallis turpis sed consequat interdum. Donec vestibulum
-			arcu quam, nec tincidunt turpis ultricies id. Nunc consectetur a ex in aliquam. Class aptent taciti sociosqu
-			ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas tempor nibh ac mattis tincidunt.
-			Nunc nulla lorem, tincidunt sit amet condimentum a, molestie vitae lorem. Sed eget eros non nisl tempor
-			venenatis. Aenean lacinia purus quis libero dictum, vitae condimentum turpis iaculis.
+			This is where the schedule would be! <br />
+			<br />
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+			tincidunt libero nec urna volutpat, eu volutpat enim viverra.
+			Vestibulum quis velit vitae libero posuere cursus at in ligula.
+			Pellentesque varius viverra risus, eget iaculis felis consequat
+			nec. Nullam sed nunc malesuada, tempor ipsum et, commodo nisi.
+			In auctor finibus lacus, a pharetra tellus pulvinar molestie.
+			Maecenas at porttitor sem. Aliquam sagittis semper nisl id
+			efficitur. Aenean commodo mattis dignissim. Maecenas nec urna ac
+			neque rutrum rutrum sed sed nisi. Mauris malesuada luctus urna,
+			ac blandit sem rhoncus at. Sed posuere nulla est, eget congue
+			augue ultrices vitae. Aenean ac pharetra enim. Quisque ut nisi
+			ipsum. Interdum et malesuada fames ac ante ipsum primis in
+			faucibus. Ut lacinia nisi et purus fringilla, non consectetur
+			elit cursus. Nam varius est in tincidunt venenatis.
+			<br />
+			<br />
+			Curabitur lorem ligula, semper nec dignissim sit amet, rutrum
+			non libero. Interdum et malesuada fames ac ante ipsum primis in
+			faucibus. Aliquam placerat finibus libero. Sed ac est erat.
+			Quisque non mi ipsum. Aliquam quam ex, consequat non bibendum
+			eget, vehicula at ex. Integer lobortis arcu eu orci sodales
+			pulvinar. Donec ac enim nisi. Aliquam convallis lacus nec
+			pretium euismod.
+			<br />
+			<br />
+			Sed eleifend magna libero, vitae fermentum nibh malesuada ut.
+			Fusce id felis at dui porttitor auctor. Nullam et ex eget sapien
+			accumsan scelerisque. Quisque lorem erat, condimentum dignissim
+			nunc et, aliquet blandit augue. Vestibulum congue, quam ut
+			interdum tristique, enim nulla feugiat nulla, in feugiat ante
+			urna ut elit. In ex nulla, tempor eu gravida sit amet, laoreet
+			sit amet quam. Ut egestas ex vel dui pretium accumsan. Nunc vel
+			porta ante.
+			<br />
+			<br />
+			Vestibulum ac nisl tristique, dapibus massa ac, rhoncus purus.
+			Duis elit est, varius sit amet hendrerit id, venenatis nec
+			sapien. Donec ut laoreet odio. Fusce convallis turpis sed
+			consequat interdum. Donec vestibulum arcu quam, nec tincidunt
+			turpis ultricies id. Nunc consectetur a ex in aliquam. Class
+			aptent taciti sociosqu ad litora torquent per conubia nostra,
+			per inceptos himenaeos. Maecenas tempor nibh ac mattis
+			tincidunt. Nunc nulla lorem, tincidunt sit amet condimentum a,
+			molestie vitae lorem. Sed eget eros non nisl tempor venenatis.
+			Aenean lacinia purus quis libero dictum, vitae condimentum
+			turpis iaculis.
 		</div>
 	</div>
 </body>

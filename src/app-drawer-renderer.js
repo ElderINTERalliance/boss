@@ -6,6 +6,7 @@ const preferences = require("./preferences-handler");
 const storage = require("electron-json-storage");
 const electron = require("electron");
 const fs = require("fs");
+const { projectName } = require("./preferences-handler");
 
 const path = storage.getDefaultDataPath();
 // TODO - Make file path work across operating systems
@@ -31,7 +32,7 @@ let drawerList = document.getElementById("shortcuts-list");
 drawerList.append(parsePreferences(getUserPreferences()));
 // __________________________
 
-// Takes user preferences, and returns a list
+// Takes user preferences as an object, and returns an array
 // of drawers of apps
 function parsePreferences(data) {
 	var root = document.createElement("div");
@@ -73,8 +74,16 @@ function initializeDrawerElement() {
 	div.innerHTML += `
 	<div class="shortcut-card-home">
 		<div class="shortcut-card-icons">
-			<div class="icon launch-button" id="launch"><i class="material-icons-round md-48">launch</i></div>
-			<div class="icon edit-button" id="edit"><i class="material-icons-round md-48">edit</i></div>
+			<div class="icon launch-button" id="launch">
+				<i class="material-icons-round md-48">
+					launch
+				</i>
+			</div>
+			<div class="icon edit-button" id="edit">
+				<i class="material-icons-round md-48">
+					edit
+				</i>
+			</div>
 		</div>
 		<div class="shortcut-card-programs">
 		</div>
@@ -112,4 +121,45 @@ function openApp(src, protocol) {
 
 function openUrlInBrowser(url) {
 	electron.shell.openExternal(url);
+}
+
+// ----------
+// Edit pane:
+// ----------
+
+function editApps() {
+	displayUserData();
+	let json = getUserPreferences();
+	console.log(json);
+	json["test"] = {
+		creeper: "aww man",
+		yeet: "skeet",
+	};
+	setUserJson(JSON.stringify(json));
+	try {
+		displayUserData();
+	} catch (error) {
+		setTimeout(() => {
+			displayUserData();
+		}, 3000);
+	}
+}
+
+// electron-json-storage had problems, and kept creating lock files
+// when I didn't want it to.
+// We're using it to create the storage file, but we'll use node to
+// actually work with the file.
+function setUserJson(newJson) {
+	fs.writeFile(storagePath, newJson, function (err) {
+		if (err) return console.log(err);
+	});
+}
+
+function displayUserData() {
+	let out = document.getElementById("user-json");
+	let text = JSON.stringify(getUserPreferences());
+	text = text.replace(/},/g, "}\t");
+	text = text.replace(/}/g, "}\n");
+	text += "\n ======== \n";
+	out.innerText += text;
 }

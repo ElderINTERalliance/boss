@@ -171,7 +171,9 @@ body {
 
 #preview-pane {
 	width: calc(50% - 50px);
-	height: 100%;
+	/* height: 100%; */
+	overflow: hidden;
+	height: calc(100% - 100px);
 	display: flex;
 	overflow: hidden;
 	left: 0;
@@ -188,6 +190,7 @@ body {
 	position: absolute;
 	right: 0;
 	padding: 25px;
+	overflow-y: scroll;
 }
 
 .shortcut-card-edit {
