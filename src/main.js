@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const preferences = require("./preferences-handler");
 // Uncomment for release, keep commented for development
-Menu.setApplicationMenu(false);
+// Menu.setApplicationMenu(false);
 
 function createWindow() {
 	// Create the browser window.

@@ -24,7 +24,7 @@ function goToElement(name, navElement) {
 	});
 
 	// Highlight selected
-	navElement.style.background = "var(--nav-selected)";
+	if (navElement) navElement.style.background = "var(--nav-selected)";
 }
 
 document.querySelectorAll(".edit-programs-list-icon").forEach(element => {

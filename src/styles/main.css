@@ -22,10 +22,14 @@
 	--light-red: #f4d2d2;
 	--dark-red: #e16769;
 	--light-green: #cbf4cd;
-    --dark-green: #44ca42;
+	--dark-green: #44ca42;
 
-    /* Material Design Custom Colors */
-    --mdc-theme-primary: var(--dark-purple);
+	/* Material Design Custom Colors */
+	--mdc-theme-primary: var(--dark-purple);
+}
+
+[hidden] {
+    display: none !important;
 }
 
 body,
@@ -57,8 +61,8 @@ h1 {
 	margin: 0;
 	padding: 25px;
 	padding-top: 13px;
-    overflow-x: hidden;
-    /* Note: Kevin had a temporary
+	overflow-x: hidden;
+	/* Note: Kevin had a temporary
        display: none; here. If there's bugs,
        try that. */
 }
@@ -112,7 +116,6 @@ h2 {
 	display: flex;
 	margin-left: 6.25px;
 	margin-right: 6.25px;
-	display: flex;
 	flex-wrap: wrap;
 	cursor: pointer;
 }
@@ -158,100 +161,103 @@ body {
 /* Edit View */
 
 #edit-view {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex: 1 0px;
+	overflow: hidden;
 }
 
 #preview-pane {
-    width: calc(50% - 50px);
-    height: 100%;
-    display: flex;
-    position: absolute;
-    left: 0;
-    background-color: var(--background-light);
-    align-items: center;
-    justify-content: center;
+	width: calc(50% - 50px);
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+	left: 0;
+	background-color: var(--background-light);
+	align-items: center;
+	justify-content: center;
 }
 
 #edit-pane {
-    width: 50%;
-    height: 100%;
-    background: var(--foreground-light);
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    padding: 25px;
+	width: 50%;
+	height: calc(100% - 100px);
+	background: var(--foreground-light);
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	padding: 25px;
 }
 
 .shortcut-card-edit {
-    /* NOTE: The use of purple is just a default, the actual color will be determined by the config */
-    background: var(--light-purple);
-    width: 201px;
-    height: 201px;
-    margin: 25px;
-    margin-left: 12.5px;
-    border: 1.5px solid var(--dark-purple);
-    border-radius: 8px;
-    position: relative;
+	/* NOTE: The use of purple is just a default, the actual color will be determined by the config */
+	background: var(--light-purple);
+	width: 201px;
+	height: 201px;
+	margin: 25px;
+	margin-left: 12.5px;
+	border: 1.5px solid var(--dark-purple);
+	border-radius: 8px;
+	position: relative;
 }
 
-.shortcut-card-edit > div,h2 {
-    color: var(--dark-purple);
+.shortcut-card-edit > div,
+h2 {
+	color: var(--dark-purple);
 }
 
 #edit-label {
-    display: block;
+	display: block;
 }
 
 #available-programs {
-    width: calc(100% - 50px);
-    height: 120px;
-    border: 1px solid #3D3F4480;
-    margin-top: 25px;
-    border-radius: 4px;
-    padding: 13px;
-    position: relative;
+	width: calc(100% - 50px);
+	height: 120px;
+	border: 1px solid #3d3f4480;
+	margin-top: 25px;
+	border-radius: 4px;
+	padding: 13px;
+	position: relative;
 }
 
 #programs-box-label {
-    transform: translateY(-34px) translateX(-4px);
-    background: var(--foreground-light);
-    display: inline-block;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-size: .75rem;
-    color: #3D3F44;
+	transform: translateY(-34px) translateX(-4px);
+	background: var(--foreground-light);
+	display: inline-block;
+	padding-left: 4px;
+	padding-right: 4px;
+	font-size: 0.75rem;
+	color: #3d3f44;
 }
 
 .edit-programs-list {
-    width: calc(100% - 25px);
-    height: 103px;
-    top: 25px;
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
+	width: calc(100% - 25px);
+	height: 103px;
+	top: 25px;
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: auto;
 }
 
 .edit-programs-list-icon {
-    width: 24px;
-    height: 24px;
-    margin: 6.25px;
-    cursor: pointer;
+	width: 24px;
+	height: 24px;
+	margin: 6.25px;
+	cursor: pointer;
 }
 
 .program-selected {
-    background: var(--light-purple);
-    border: 1px solid var(--dark-purple);
-    border-radius: 4px;
-    padding: 3px;
-    margin: 2.25px;
+	background: var(--light-purple);
+	border: 1px solid var(--dark-purple);
+	border-radius: 4px;
+	padding: 3px;
+	margin: 2.25px;
 }
 
 /* Material Components TextField Fix */
 .mdc-notched-outline__notch {
-    border-top: 0.5px solid;
-    border-bottom: 0.5px solid;
+	border-top: 0.5px solid;
+	border-bottom: 0.5px solid;
 }
