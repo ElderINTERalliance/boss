@@ -31,9 +31,6 @@
 		<div class="nav-item" onclick="goToElement('schedule', this)">
 			Schedule
 		</div>
-		<div class="nav-item" onclick="goToElement('edit-view', this)">
-			Edit Apps
-		</div>
 	</div>
 
 	<div id="content">
@@ -90,74 +87,61 @@
 				</div>
 				<h1 id="edit-label">Edit Shortcut</h1>
 				<div class="mdc-text-field mdc-text-field--outlined">
-					<input class="mdc-text-field__input mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating mdc-text-field--focused" id="text-field-hero-input" value="" placeholder="Science Class"/>
+					<input
+						class="mdc-text-field__input mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating mdc-text-field--focused"
+						id="input-drawer-name" value="Science Class" />
 					<div class="mdc-notched-outline">
 						<div class="mdc-notched-outline__leading"></div>
 						<div class="mdc-notched-outline__notch">
-							<label for="text-field-hero-input" class="mdc-floating-label">
+							<label for="input-drawer-name" class="mdc-floating-label">
 								Drawer Name
 							</label>
 						</div>
 						<div class="mdc-notched-outline__trailing"></div>
 					</div>
 				</div>
-
-				<div id="available-programs">
-					<p id="programs-box-label">Available Programs</p>
-					<div class="edit-programs-list">
-						<!-- Sample Icons -->
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon program-selected"
-							src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon program-selected"
-							src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
-						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png" />
-						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico" />
-						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png" />
-						<img class="edit-programs-list-icon"
-							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" />
-						<img class="edit-programs-list-icon"
-							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png" />
-						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg" />
+				<br>
+				<br>
+				<div class="mdc-text-field mdc-text-field--outlined">
+					<input class="mdc-text-field__input" id="input-src">
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="input-src" class="mdc-floating-label">App path</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
 					</div>
 				</div>
+				<br>
+				<br>
+				<div class="mdc-text-field mdc-text-field--outlined">
+					<input class="mdc-text-field__input" id="input-icon-path">
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="input-icon-path" class="mdc-floating-label">Icon Path</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+				<!-- Technically you shouldn't use br to do spacing like this,
+				     but I don't have a lot of time to waste fiddling with css -->
+				<br>
+				<br>
+				<div class="mdc-touch-target-wrapper">
+					<button class="mdc-button mdc-button--touch" id="preview-drawer">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">Preview</span>
+						<div class="mdc-button__touch"></div>
+					</button>
+				</div>
+				<div class="mdc-touch-target-wrapper" id="submit-drawer">
+					<button class="mdc-button mdc-button--raised">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">Submit</span>
+					</button>
+				</div>
+
 			</div>
 		</div>
 

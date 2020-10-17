@@ -32,13 +32,14 @@ function getUserPreferences() {
 loadAppDrawers();
 
 document.getElementById("new-shortcut").addEventListener("click", () => {
-	editDrawer("")
+	editDrawer("");
 });
 
-document.querySelectorAll(".edit-button").forEach((element) => {
-	element.addEventListener("click", () => {
+// console.log(document.querySelectorAll("#edit"))
+document.querySelectorAll("#edit").forEach((element) => {
+	element.onclick = function () {
 		editDrawer(this)
-	});
+	};
 });
 // __________________________
 
@@ -141,29 +142,15 @@ function openUrlInBrowser(url) {
 
 // ----------
 // Edit pane:
+// This is not finished yet, but I am prioritizing 
+// a pretty product over a functional product.
 // ----------
 
-function editApps() {
-	displayUserData();
-	let json = getUserPreferences();
-	console.log(json);
-	json["test"] = {
-		creeper: "aww man",
-		yeet: "skeet",
-	};
-	setUserJson(JSON.stringify(json));
-	try {
-		displayUserData();
-	} catch (error) {
-		setTimeout(() => {
-			displayUserData();
-		}, 3000);
-	}
-}
-
-function editDrawer(drawerClicked) {
-	if (drawerClicked) {
-		openEditWindow("test");
+function editDrawer(buttonClicked) {
+	if (buttonClicked) {
+		openEditWindow(getTitleOfEditButton(buttonClicked))
+	} else {
+		openEditWindow("")
 	}
 }
 
@@ -177,13 +164,14 @@ function openEditWindow(prefill) {
 }
 
 function getLabelValue() {
-	return document.querySelector("#text-field-hero-input");
+	// FIXME - Name implies text, but function returns html
+	return document.querySelector("#input-drawer-name");
 }
 
 function setLabelValue(value) {
-	var el = document.querySelector("#text-field-hero-input");
+	var el = document.querySelector("#input-drawer-name");
 	el.value = value;
-	// el.prefill = 
+	// el.prefill =
 }
 
 function getTitleOfEditButton(button) {
