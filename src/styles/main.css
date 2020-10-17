@@ -73,6 +73,7 @@ h1 {
 	margin-left: 12.5px;
 	margin-right: 12.5px;
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 }
 
@@ -257,6 +258,12 @@ h2 {
 	border-radius: 4px;
 	padding: 3px;
 	margin: 2.25px;
+}
+
+#exit-edit-pane {
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 /* Material Components TextField Fix */

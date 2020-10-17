@@ -28,9 +28,25 @@ function getUserPreferences() {
 // THIS IS RUN AT SCRIPT LOAD
 // This reads the user data, and appends it to the home tab,
 // in the form of app drawers
-let drawerList = document.getElementById("shortcuts-list");
-drawerList.append(parsePreferences(getUserPreferences()));
+
+loadAppDrawers();
+
+document.getElementById("new-shortcut").addEventListener("click", () => {
+	editDrawer("")
+});
+
+document.querySelectorAll(".edit-button").forEach((element) => {
+	element.addEventListener("click", () => {
+		editDrawer(this)
+	});
+});
 // __________________________
+
+function loadAppDrawers() {
+	let drawerList = document.getElementById("shortcuts-list");
+	drawerList.innerHTML = "";
+	drawerList.append(parsePreferences(getUserPreferences()));
+}
 
 // Takes user preferences as an object, and returns an array
 // of drawers of apps
@@ -143,6 +159,41 @@ function editApps() {
 			displayUserData();
 		}, 3000);
 	}
+}
+
+function editDrawer(drawerClicked) {
+	if (drawerClicked) {
+		openEditWindow("test");
+	}
+}
+
+function openEditWindow(prefill) {
+	if (prefill) {
+		setLabelValue(prefill);
+	} else {
+		setLabelValue("");
+	}
+	goToElement("edit-view");
+}
+
+function getLabelValue() {
+	return document.querySelector("#text-field-hero-input");
+}
+
+function setLabelValue(value) {
+	var el = document.querySelector("#text-field-hero-input");
+	el.value = value;
+	// el.prefill = 
+}
+
+function getTitleOfEditButton(button) {
+	// prettier-ignore
+	// go up two levels, and get the card label.
+	return button
+		.parentElement
+		.parentElement
+		.getElementsByClassName("shortcut-card-label")[0]
+		.textContent
 }
 
 // electron-json-storage had problems, and kept creating lock files
