@@ -127,6 +127,14 @@ h2 {
 	margin: 6.25px;
 }
 
+.drawer-container {
+	overflow: wrap;
+	width: 100%;
+	flex-direction: row;
+	display: flex;  
+	flex-wrap: wrap;
+}
+
 /* Navigation Bar, at the top of the page */
 
 #nav-bar {

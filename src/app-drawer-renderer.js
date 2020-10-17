@@ -53,6 +53,7 @@ function loadAppDrawers() {
 // of drawers of apps
 function parsePreferences(data) {
 	var root = document.createElement("div");
+	root.className = "drawer-container"
 	Object.keys(data).forEach((drawer) => {
 		root.append(createDrawer(drawer, data[drawer]));
 	});
@@ -144,6 +145,11 @@ function openUrlInBrowser(url) {
 // Edit pane:
 // This is not finished yet, but I am prioritizing 
 // a pretty product over a functional product.
+// 
+// To Do:
+// - Add "Add Icon" button
+// - Dynamically generate preview pane
+// - make textbox labels float properly
 // ----------
 
 function editDrawer(buttonClicked) {
