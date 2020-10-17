@@ -29,33 +29,31 @@
 		</div>
 
 		<div id="shortcuts-list">
-			<div class="shortcut-card-home" data-shortuct-config="web-design.json">
+			<div class="shortcut-card-home light-blue lock" data-shortuct-config="web-design.json">
 				<div class="shortcut-card-icons">
-					<div class="icon" id="launch"><i class="material-icons-round md-48">launch</i></div>
-					<div class="icon" id="edit"><i class="material-icons-round md-48">edit</i></div>
+					<div class="icon dark-blue lock" id="launch"><i class="material-icons-round md-48">launch</i></div>
+					<div class="icon dark-blue lock" id="edit"><i class="material-icons-round md-48">edit</i></div>
 				</div>
 				<div class="shortcut-card-programs">
 					<!-- Sample Icons -->
 					<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
 					<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
 					<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="shortcut-card-program-icon"
-						src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="shortcut-card-program-icon"
-						src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+					<img class="shortcut-card-program-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+					<img class="shortcut-card-program-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
 					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
 				</div>
-				<h2 class="shortcut-card-label">Web Design</h2>
+				<h2 class="shortcut-card-label dark-blue lock">Web Design</h2>
 			</div>
 		</div>
 	</div>
 
 	<div id="edit-view">
 		<div id="preview-pane">
-			<div class="shortcut-card-edit" data-shortuct-config="web-design.json">
+			<div class="shortcut-card-edit light-blue" data-shortuct-config="web-design.json">
 				<div class="shortcut-card-icons">
-					<div class="icon" id="launch"><i class="material-icons-round md-48">desktop_windows</i></div>
-					<div class="icon" id="edit"><i class="material-icons-round md-48">delete_outline</i></div>
+					<div class="icon dark-blue" id="desktop"><i class="material-icons-round md-48">desktop_windows</i></div>
+					<div class="icon dark-blue" id="delete"><i class="material-icons-round md-48">delete_outline</i></div>
 				</div>
 				<div class="shortcut-card-programs">
 					<!-- Sample Icons -->
@@ -68,10 +66,10 @@
 						src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
 					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
 				</div>
-				<h2 class="shortcut-card-label">Web Design</h2>
+				<h2 class="shortcut-card-label dark-blue">Web Design</h2>
 			</div>
 		</div>
-		<div id="edit-pane">
+		<div id="edit-pane" data-color="blue">
 			<h1 id="edit-label">Edit Shortcut</h1>
 			<div class="mdc-text-field mdc-text-field--outlined">
 				<input class="mdc-text-field__input" id="text-field-hero-input">
@@ -85,12 +83,12 @@
 			</div>
 			
 			<div id="available-programs">
-				<p id="programs-box-label">Available Programs</p>
+				<p class="floating-box-label">Available Programs</p>
 				<div class="edit-programs-list">
 					<!-- Sample Icons -->
 					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon program-selected" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon program-selected" src="https://static.figma.com/app/icon/1/favicon.png">
+					<img class="edit-programs-list-icon program-selected light-blue" src="https://code.visualstudio.com/favicon.ico">
+					<img class="edit-programs-list-icon program-selected light-blue" src="https://static.figma.com/app/icon/1/favicon.png">
 					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
 					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
 					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
@@ -124,6 +122,29 @@
 					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
 					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
 					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+				</div>
+			</div>
+			<div id="button-container">
+				<button id="edit-programs-custom" class="dark-blue">Custom program</button>
+			</div>
+			<div id="edit-colors">
+				<p class="floating-box-label">Color Theme</p>
+				<div id="colors-list">
+					<div class="light-purple large-color lock" data-color="purple">
+						<div class="dark-purple small-color lock"></div>
+					</div>
+					<div class="light-blue large-color lock" data-color="blue">
+						<div class="dark-blue small-color lock"></div>
+					</div>
+					<div class="light-yellow large-color lock" data-color="yellow">
+						<div class="dark-yellow small-color lock"></div>
+					</div>
+					<div class="light-red large-color lock" data-color="red">
+						<div class="dark-red small-color lock"></div>
+					</div>
+					<div class="light-green large-color lock" data-color="green">
+						<div class="dark-green small-color lock"></div>
+					</div>
 				</div>
 			</div>
 		</div>
