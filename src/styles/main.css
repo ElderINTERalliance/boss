@@ -329,4 +329,8 @@ h2 {
 #schedule {
 	width: 100%;
 	height: 100%;
+	padding-left: 20px;
+}
+.assignment {
+	padding-left: 20px;
 }

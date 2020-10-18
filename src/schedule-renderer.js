@@ -37,20 +37,44 @@ function load(theUrl) {
 }
 
 function loadEvents(data) {
-	let events = ical.parseICS(data);
-    // events.sort(
+	// let date1 = new Date("Mon Aug 24 2020 00:00:00 GMT-0400 (Eastern Daylight Time)")
+	// let date2 = new Date("Mon Aug 24 2020 00:00:00 GMT-0400 (Eastern Daylight Time)")
+	// console.log(date1.getTime());
 
-    // )
+	let events = ical.parseICS(data);
+    var parsedList = [];
+
+    // take string data and get important parts
 	Object.values(events).forEach((assignment) => {
+		let parsed = {};
+		parsed.start = assignment["start"];
+		parsed.summary = assignment["summary"];
+		parsed.description = assignment["description"];
+		parsedList.push(parsed);
+    });
+    
+    // Sort by date
+	parsedList.sort((a, b) => {
+		// Turn your strings into dates, and then subtract them
+		// to get a value that is either negative, positive, or zero.
+		return new Date(b.start) - new Date(a.start);
+    });
+
+	Object.values(parsedList).forEach((assignment) => {
 		addToSchedule(assignment);
-	});
+    });
+
+	console.log(parsedList);
 }
 
+// This is trash code but I don't have much time left
 function addToSchedule(data) {
 	let assignment = document.createElement("div");
 	let header = document.createElement("h3");
 	let text = document.createElement("p");
 	let due = document.createElement("p");
+    due.className = "duedate";
+    assignment.className = "assignment"
 
 	header.textContent = data["summary"];
 
@@ -58,7 +82,16 @@ function addToSchedule(data) {
 		text.textContent = data["description"].replaceAll("&#160;", "");
 	}
 
-	due.textContent = data["start"];
+	if (data["start"]) {
+		const options = {
+			weekday: "long",
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+		};
+		let time = new Date(Date.parse(data["start"]));
+		due.textContent = "Due: " + time.toLocaleDateString("en", options);
+	}
 
 	assignment.append(header);
 	assignment.append(text);
