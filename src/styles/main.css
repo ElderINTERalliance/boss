@@ -101,6 +101,15 @@ h1 {
     padding: 8px;
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3D3F4480;
+    border-radius: 5px;
+}
+
 #new-shortcut > i{
     color: #3D3F44;
     cursor: pointer;
