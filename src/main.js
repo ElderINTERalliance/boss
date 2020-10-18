@@ -7,7 +7,7 @@ Menu.setApplicationMenu(false);
 function createWindow() {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 548,
+		width: 800,
 		height: 600,
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
@@ -21,7 +21,7 @@ function createWindow() {
 
 	// Open the DevTools.
 	// Comment for release, keep uncommented for development
-	// mainWindow.webContents.openDevTools();
+	mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
