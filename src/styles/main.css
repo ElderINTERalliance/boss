@@ -308,3 +308,14 @@ h2 {
 	padding: 10px;
 	background: var(--timer-background);
 }
+
+#timer-log {
+	padding-left: 10px;
+	float: left;
+	text-align: left;
+}
+
+#timer-log-frame {
+	padding-left: 20px;
+	padding-top: 0px;
+}
