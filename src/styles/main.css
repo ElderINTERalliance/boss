@@ -1,10 +1,4 @@
 :root {
-	/* Color Themes */
-	--background-light: #edf0f8;
-	--foreground-light: #ffffff;
-	--background-dark: #141414;
-	--foreground-dark: #333333;
-
 	--window-background: #edf0f8;
 
 	/* These variables are used by renderer.js 
@@ -12,35 +6,113 @@
 	--nav-default: #edf0f8;
 	--nav-selected: #f0dede;
 
+	/* Navbar height */
+	--nav-height: 50px;
+
 	/* timer background */
 	--timer-background: #d3bef0;
 
-	/* Shortcut Colors */
-	--light-purple: #dfcdfa;
-	--dark-purple: #9d53fd;
-	--light-blue: #c9e1f6;
-	--dark-blue: #48a3f6;
-	--light-yellow: #f4e3cb;
-	--dark-yellow: #f3ad4b;
-	--light-red: #f4d2d2;
-	--dark-red: #e16769;
-	--light-green: #cbf4cd;
-	--dark-green: #44ca42;
+    /* Color Themes */
+    --background-light: #EDF0F8;
+    --foreground-light: #FFFFFF;
+    --background-dark: #141414;
+    --foregorund-dark: #333333;
 
-	/* Material Design Custom Colors */
+    /* Shortcut Colors */
+    --light-purple: #DFCDFA;
+    --dark-purple: #9D53FD;
+    --light-blue: #C9E1F6;
+    --dark-blue: #48A3F6;
+    --light-yellow: #F4E3CB;
+    --dark-yellow: #F3AD4B;
+    --light-red: #F4D2D2;
+    --dark-red: #E16769;
+    --light-green: #CBF4CD;
+    --dark-green: #44CA42;
+
+    /* Material Design Custom Colors */
 	--mdc-theme-primary: var(--dark-purple);
+}
+
+/* Color Class Definitions */
+
+.light-purple {
+    background: var(--light-purple);
+    color: var(--light-purple);
+    border-color: var(--dark-purple);
+}
+
+.dark-purple {
+    background: var(--dark-purple);
+    color: var(--dark-purple);
+    border-color: var(--dark-purple);
+}
+
+.light-blue {
+    background: var(--light-blue);
+    color: var(--light-blue);
+    border-color: var(--dark-blue);
+}
+
+.dark-blue {
+    background: var(--dark-blue);
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.light-yellow {
+    background: var(--light-yellow);
+    color: var(--light-yellow);
+    border-color: var(--dark-yellow);
+}
+
+.dark-yellow {
+    background: var(--dark-yellow);
+    color: var(--dark-yellow);
+    border-color: var(--dark-yellow);
+}
+
+.light-red {
+    background: var(--light-red);
+    color: var(--light-red);
+    border-color: var(--dark-red);
+}
+
+.dark-red {
+    background: var(--dark-red);
+    color: var(--dark-red);
+    border-color: var(--dark-red);
+}
+
+.light-green {
+    background: var(--light-green);
+    color: var(--light-green);
+    border-color: var(--dark-green);
+}
+
+.dark-green {
+    background: var(--dark-green);
+    color: var(--dark-green);
+    border-color: var(--dark-green);
+}
+
+body, html {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    width: 100%;
+	height: 100%;
+}
+
+body {
+	margin-top: var(--nav-height);
 }
 
 [hidden] {
     display: none !important;
 }
 
-body,
-html {
-	font-family: "Montserrat", sans-serif;
-	margin: 0;
-	width: 100%;
-	height: 100%;
+#content {
+	min-height: 100%;
 }
 
 h1 {
@@ -56,6 +128,15 @@ h2 {
 .icon {
 	display: inline-block;
 	padding: 8px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3D3F4480;
+    border-radius: 5px;
 }
 
 #new-shortcut > i {
@@ -85,20 +166,22 @@ h2 {
 }
 
 .shortcut-card-home {
-	/* NOTE: The use of purple is just a default, the actual color will be determined by the config */
-	background: var(--light-purple);
-	width: 201px;
-	height: 201px;
-	margin: 25px;
-	margin-left: 12.5px;
-	border: 1.5px solid var(--dark-purple);
-	border-radius: 8px;
-	position: relative;
+    width: 201px;
+    height: 201px;
+    margin: 25px;
+    margin-left: 12.5px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 8px;
+    position: relative;
 }
 
-.shortcut-card-home > div,
-h2 {
-	color: var(--dark-purple);
+#edit, #launch {
+    background: none !important;
+}
+
+.shortcut-card-home > div,h2 {
+    background: none !important;
 }
 
 .shortcut-card-icons {
@@ -151,8 +234,11 @@ h2 {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
-	height: 50px;
+	height: var(--nav-height);
 	box-sizing: border-box;
+	position: fixed;
+	transform: translateY(  calc(-1 * var(--nav-height) ) );
+	z-index: 99;
 }
 
 .nav-item {
@@ -187,7 +273,7 @@ body {
 
 #preview-pane {
 	width: calc(50% - 50px);
-	/* height: 100%; */
+	height: 100%;
 	overflow: hidden;
 	height: calc(100% - 100px);
 	display: flex;
@@ -210,20 +296,22 @@ body {
 }
 
 .shortcut-card-edit {
-	/* NOTE: The use of purple is just a default, the actual color will be determined by the config */
-	background: var(--light-purple);
-	width: 201px;
-	height: 201px;
-	margin: 25px;
-	margin-left: 12.5px;
-	border: 1.5px solid var(--dark-purple);
-	border-radius: 8px;
-	position: relative;
+    width: 201px;
+    height: 201px;
+    margin: 25px;
+    margin-left: 12.5px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 8px;
+    position: relative;
 }
 
-.shortcut-card-edit > div,
-h2 {
-	color: var(--dark-purple);
+.shortcut-card-edit > div,h2 {
+    background: none !important;
+}
+
+#desktop, #delete {
+    background: none !important;
 }
 
 #edit-label {
@@ -240,14 +328,14 @@ h2 {
 	position: relative;
 }
 
-#programs-box-label {
-	transform: translateY(-34px) translateX(-4px);
-	background: var(--foreground-light);
-	display: inline-block;
-	padding-left: 4px;
-	padding-right: 4px;
-	font-size: 0.75rem;
-	color: #3d3f44;
+.floating-box-label {
+    transform: translateY(-34px) translateX(-4px);
+    background: var(--foreground-light);
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: .75rem;
+    color: #3D3F44;
 }
 
 .edit-programs-list {
@@ -268,17 +356,86 @@ h2 {
 }
 
 .program-selected {
-	background: var(--light-purple);
-	border: 1px solid var(--dark-purple);
-	border-radius: 4px;
-	padding: 3px;
-	margin: 2.25px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 2.25px;
 }
 
 #exit-edit-pane {
 	float: right;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+#button-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#edit-programs-custom, #edit-programs-custom:focus {
+    /* background: var(--dark-purple); */
+    border: none;
+    border-radius: 4px;
+    color: var(--foreground-light);
+    font-weight: 600;
+    padding: 12.5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 25px;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    transform: translateX(3px);
+    outline: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#edit-colors {
+    width: 250px;
+    border: 1px solid #3D3F4480;
+    border-radius: 4px;
+    padding: 13px;
+    padding-bottom: 18.25px;
+    margin-top: 12.5px;
+    position: relative;
+    display: inline-block;
+}
+
+#colors-list {
+    width: calc(100% - 25px);
+    top: 12.5px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.large-color {
+    width: 36px;
+    height: 36px;
+    margin: 6.25px;
+    cursor: pointer;
+}
+
+.small-color {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    margin-left: 18px;
+    margin-top: 18px;
+}
+
+.color-selected {
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Material Components TextField Fix */
