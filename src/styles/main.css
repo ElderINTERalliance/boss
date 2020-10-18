@@ -1,4 +1,17 @@
 :root {
+	--window-background: #edf0f8;
+
+	/* These variables are used by renderer.js 
+       for styling nav elements */
+	--nav-default: #edf0f8;
+	--nav-selected: #f0dede;
+
+	/* Navbar height */
+	--nav-height: 50px;
+
+	/* timer background */
+	--timer-background: #d3bef0;
+
     /* Color Themes */
     --background-light: #EDF0F8;
     --foreground-light: #FFFFFF;
@@ -18,7 +31,7 @@
     --dark-green: #44CA42;
 
     /* Material Design Custom Colors */
-    --mdc-theme-primary: var(--dark-purple);
+	--mdc-theme-primary: var(--dark-purple);
 }
 
 /* Color Class Definitions */
@@ -87,18 +100,34 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     width: 100%;
-    height: 100%;
+	height: 100%;
+}
+
+body {
+	margin-top: var(--nav-height);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+#content {
+	min-height: 100%;
 }
 
 h1 {
-    font-size: 36px;
-    color: #3D3F44;
-    display: inline-block;
+	font-size: 36px;
+	color: #3d3f44;
+	display: inline-block;
+}
+
+h2 {
+	padding: 0px;
 }
 
 .icon {
-    display: inline-block;
-    padding: 8px;
+	display: inline-block;
+	padding: 8px;
 }
 
 ::-webkit-scrollbar {
@@ -110,30 +139,30 @@ h1 {
     border-radius: 5px;
 }
 
-#new-shortcut > i{
-    color: #3D3F44;
-    cursor: pointer;
+#new-shortcut > i {
+	color: #3d3f44;
+	cursor: pointer;
 }
 
 #home-view {
-    background: #EDF0F8;
-    min-height: 100%;
-    margin: 0;
-    padding: 25px;
-    padding-top: 13px;
-    overflow-x: hidden;
-
-    /* Temporary */
-    /* display: none; */
+	min-height: 100%;
+	margin: 0;
+	padding: 25px;
+	padding-top: 13px;
+	overflow-x: hidden;
+	/* Note: Kevin had a temporary
+       display: none; here. If there's bugs,
+       try that. */
 }
 
 #shortcuts-list {
-    width: calc(100% + 50px);
-    transform: translateX(-25px);
-    margin-left: 12.5px;
-    margin-right: 12.5px;
-    display: flex;
-    flex-wrap: wrap;
+	width: calc(100% + 50px);
+	transform: translateX(-25px);
+	margin-left: 12.5px;
+	margin-right: 12.5px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 }
 
 .shortcut-card-home {
@@ -156,66 +185,114 @@ h1 {
 }
 
 .shortcut-card-icons {
-    position: absolute;
-    right: 0;
+	position: absolute;
+	right: 0;
 }
 
 .shortcut-card-icons > div > i {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .shortcut-card-label {
-    position: absolute;
-    margin: 12.5px;
-    bottom: 0;
+	position: absolute;
+	margin: 12.5px;
+	bottom: 0;
 }
 
 .shortcut-card-programs {
-    width: 100%;
-    height: 103px;
-    position: absolute;
-    top: 44px;
-    display: flex;
-    margin-left: 6.25px;
-    margin-right: 6.25px;
-    display: flex;
-    flex-wrap: wrap;
+	width: 100%;
+	height: 103px;
+	position: absolute;
+	top: 44px;
+	display: flex;
+	margin-left: 6.25px;
+	margin-right: 6.25px;
+	flex-wrap: wrap;
+	cursor: pointer;
 }
 
 .shortcut-card-program-icon {
-    width: 24px;
-    height: 24px;
-    margin: 6.25px;
+	width: 24px;
+	height: 24px;
+	margin: 6.25px;
+}
+
+.drawer-container {
+	overflow: wrap;
+	width: 100%;
+	flex-direction: row;
+	display: flex;  
+	flex-wrap: wrap;
+}
+
+/* Navigation Bar, at the top of the page */
+
+#nav-bar {
+	border: 2px solid;
+	border-color: lightgray;
+	background: var(--background-light);
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: var(--nav-height);
+	box-sizing: border-box;
+	position: fixed;
+	transform: translateY(  calc(-1 * var(--nav-height) ) );
+	z-index: 99;
+}
+
+.nav-item {
+	/* The css for nav items is set by renderer.js */
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/* 
+ * account for dynamic sizing
+ *
+ * making internal elements 100% 
+ * tends to make the scroll bar act weird 
+*/
+body {
+	background: var(--window-background);
 }
 
 /* Edit View */
 
 #edit-view {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex: 1 0px;
+	overflow: hidden;
 }
 
 #preview-pane {
-    width: calc(50% - 50px);
-    height: 100%;
-    display: flex;
-    position: absolute;
-    left: 0;
-    background-color: var(--background-light);
-    align-items: center;
-    justify-content: center;
+	width: calc(50% - 50px);
+	height: 100%;
+	overflow: hidden;
+	height: calc(100% - 100px);
+	display: flex;
+	overflow: hidden;
+	left: 0;
+	background-color: var(--background-light);
+	align-items: center;
+	justify-content: center;
 }
 
 #edit-pane {
-    width: 50%;
-    height: 100%;
-    background: var(--foreground-light);
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    padding: 25px;
+	width: 50%;
+	height: calc(100% - 100px);
+	background: var(--foreground-light);
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	padding: 25px;
+	overflow-y: scroll;
 }
 
 .shortcut-card-edit {
@@ -238,17 +315,17 @@ h1 {
 }
 
 #edit-label {
-    display: block;
+	display: block;
 }
 
 #available-programs {
-    width: calc(100% - 50px);
-    height: 120px;
-    border: 1px solid #3D3F4480;
-    margin-top: 25px;
-    border-radius: 4px;
-    padding: 13px;
-    position: relative;
+	width: calc(100% - 50px);
+	height: 120px;
+	border: 1px solid #3d3f4480;
+	margin-top: 25px;
+	border-radius: 4px;
+	padding: 13px;
+	position: relative;
 }
 
 .floating-box-label {
@@ -262,20 +339,20 @@ h1 {
 }
 
 .edit-programs-list {
-    width: calc(100% - 25px);
-    height: 103px;
-    top: 25px;
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
+	width: calc(100% - 25px);
+	height: 103px;
+	top: 25px;
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: auto;
 }
 
 .edit-programs-list-icon {
-    width: 24px;
-    height: 24px;
-    margin: 6.25px;
-    cursor: pointer;
+	width: 24px;
+	height: 24px;
+	margin: 6.25px;
+	cursor: pointer;
 }
 
 .program-selected {
@@ -284,6 +361,12 @@ h1 {
     border-radius: 4px;
     padding: 3px;
     margin: 2.25px;
+}
+
+#exit-edit-pane {
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 #button-container {
@@ -357,6 +440,54 @@ h1 {
 
 /* Material Components TextField Fix */
 .mdc-notched-outline__notch {
-    border-top: 0.5px solid;
-    border-bottom: 0.5px solid;
+	border-top: 0.5px solid;
+	border-bottom: 0.5px solid;
+}
+
+/* Timer: */
+#timer {
+	padding: 0px;
+	margin: auto;
+	text-align: center;
+}
+
+#timer-container > h2 {
+	font-size: 75px;
+	color: #141414;
+	padding-bottom: 10px;
+}
+
+#timer-container > mdc-button {
+	background: red;
+}
+
+#timer-container {
+	padding: 10px;
+	background: rgb(211,190,240);
+	background: linear-gradient(259deg, rgba(211,190,240,1) 0%, rgba(192,158,240,1) 19%, rgba(169,128,227,1) 50%, rgba(196,165,240,1) 84%, rgba(211,190,240,1) 100%);
+}
+
+.time-button {
+	color: black;
+}
+
+#timer-log {
+	padding-left: 10px;
+	float: left;
+	text-align: left;
+}
+
+#timer-log-frame {
+	padding-left: 20px;
+	padding-top: 0px;
+}
+
+/* Schedule iframe */
+#schedule {
+	width: 90%;
+	height: 100%;
+	padding-left: 20px;
+}
+.assignment {
+	padding-left: 20px;
 }

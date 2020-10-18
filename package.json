@@ -1,24 +1,26 @@
 {
-  "name": "boss",
-  "version": "1.0.0",
-  "description": "a Better Online School System - A series of tools to help students succeed in online environments",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron src/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "Congressional",
-    "App",
-    "Challenge"
-  ],
-  "author": "zsarge",
-  "license": "MIT",
-  "devDependencies": {
-    "electron": "^10.1.3"
-  },
-  "dependencies": {
-    "@material/auto-init": "^7.0.0",
-    "@material/textfield": "^7.0.0"
-  }
+	"name": "boss",
+	"version": "1.0.0",
+	"description": "a Better Online School System - A series of tools to help students succeed in online environments",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron src/main.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"Congressional",
+		"App",
+		"Challenge"
+	],
+	"author": "zsarge",
+	"license": "MIT",
+	"devDependencies": {
+		"electron": "^10.1.3"
+	},
+	"dependencies": {
+		"@material/auto-init": "^7.0.0",
+		"@material/textfield": "^7.0.0",
+		"electron-json-storage": "^4.2.0",
+		"ical": "^0.8.0"
+	}
 }

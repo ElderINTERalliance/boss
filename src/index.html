@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<title>boss</title>
+	<title>BOSS</title>
 	<!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
 	<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; https://unpkg.com;" /> -->
 	<!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com "> -->
@@ -14,145 +14,207 @@
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
 	<script src="renderer.js" defer></script>
+	<script src="app-drawer-renderer.js" defer></script>
+	<script src="timer-renderer.js" defer></script>
+	<script src="schedule-renderer.js" defer></script>
+	<script src="" defer></script>
 	<link rel="stylesheet" href="styles/main.css" />
-
-
+	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+		rel="stylesheet" />
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </head>
 
 <body>
-	<div id="home-view">
-		<div id="header">
-			<h1 id="main-label">Shortcuts</h1>
-			<div class="icon" id="new-shortcut"><i class="material-icons-round md-48">add_box</i></div>
+	<div id="nav-bar">
+		<div class="nav-item" onclick="goToElement('home-view', this)">
+			Home
 		</div>
-
-		<div id="shortcuts-list">
-			<div class="shortcut-card-home light-blue lock" data-shortuct-config="web-design.json">
-				<div class="shortcut-card-icons">
-					<div class="icon dark-blue lock" id="launch"><i class="material-icons-round md-48">launch</i></div>
-					<div class="icon dark-blue lock" id="edit"><i class="material-icons-round md-48">edit</i></div>
-				</div>
-				<div class="shortcut-card-programs">
-					<!-- Sample Icons -->
-					<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="shortcut-card-program-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="shortcut-card-program-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-				</div>
-				<h2 class="shortcut-card-label dark-blue lock">Web Design</h2>
-			</div>
+		<div class="nav-item" onclick="goToElement('timer', this)">
+			Timer
+		</div>
+		<div class="nav-item" onclick="goToElement('schedule', this)">
+			Assignments
 		</div>
 	</div>
+	<div id="content">
+		<div id="staging">
+			This is just a working pane. <br />
+			<button onclick="editApps()">Display User Data</button>
+			<pre>
+				<div id="user-json"></div>
+			</pre>
+		</div>
 
-	<div id="edit-view">
-		<div id="preview-pane">
-			<div class="shortcut-card-edit light-blue" data-shortuct-config="web-design.json">
-				<div class="shortcut-card-icons">
-					<div class="icon dark-blue" id="desktop"><i class="material-icons-round md-48">desktop_windows</i></div>
-					<div class="icon dark-blue" id="delete"><i class="material-icons-round md-48">delete_outline</i></div>
+		<div id="home-view">
+			<div id="header">
+				<h1 id="main-label">Shortcuts</h1>
+				<div class="icon" id="new-shortcut">
+					<i class="material-icons-round md-48">add_box</i>
 				</div>
-				<div class="shortcut-card-programs">
-					<!-- Sample Icons -->
-					<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="shortcut-card-program-icon"
-						src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="shortcut-card-program-icon"
-						src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-				</div>
-				<h2 class="shortcut-card-label dark-blue">Web Design</h2>
+			</div>
+
+			<div id="shortcuts-list">
+				<!-- This is used by app-drawer-renderer.js -->
 			</div>
 		</div>
-		<div id="edit-pane" data-color="blue">
-			<h1 id="edit-label">Edit Shortcut</h1>
-			<div class="mdc-text-field mdc-text-field--outlined">
-				<input class="mdc-text-field__input" id="text-field-hero-input">
-				<div class="mdc-notched-outline">
-					<div class="mdc-notched-outline__leading"></div>
-					<div class="mdc-notched-outline__notch">
-						<label for="text-field-hero-input" class="mdc-floating-label">Label</label>
+	
+		<div id="edit-view" hidden>
+			<div id="preview-pane">
+				<div class="shortcut-card-edit light-blue" data-shortuct-config="web-design.json">
+					<div class="shortcut-card-icons">
+						<div class="icon dark-blue" id="desktop"><i class="material-icons-round md-48">desktop_windows</i></div>
+						<div class="icon dark-blue" id="delete"><i class="material-icons-round md-48">delete_outline</i></div>
 					</div>
-					<div class="mdc-notched-outline__trailing"></div>
+					<div class="shortcut-card-programs">
+						<!-- Sample Icons -->
+						<img class="shortcut-card-program-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="shortcut-card-program-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="shortcut-card-program-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="shortcut-card-program-icon"
+							src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="shortcut-card-program-icon"
+							src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="shortcut-card-program-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+					</div>
+					<h2 class="shortcut-card-label dark-blue">Web Design</h2>
 				</div>
 			</div>
-			
-			<div id="available-programs">
-				<p class="floating-box-label">Available Programs</p>
-				<div class="edit-programs-list">
-					<!-- Sample Icons -->
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon program-selected light-blue" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon program-selected light-blue" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
-					<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
-					<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
-					<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
-					<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
-					<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
-					<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+			<div id="edit-pane" data-color="blue">
+				<div id="exit-edit-pane" onclick="goToElement('home-view')">
+					X
 				</div>
-			</div>
-			<div id="button-container">
-				<button id="edit-programs-custom" class="dark-blue">Custom program</button>
-			</div>
-			<div id="edit-colors">
-				<p class="floating-box-label">Color Theme</p>
-				<div id="colors-list">
-					<div class="light-purple large-color lock" data-color="purple">
-						<div class="dark-purple small-color lock"></div>
-					</div>
-					<div class="light-blue large-color lock" data-color="blue">
-						<div class="dark-blue small-color lock"></div>
-					</div>
-					<div class="light-yellow large-color lock" data-color="yellow">
-						<div class="dark-yellow small-color lock"></div>
-					</div>
-					<div class="light-red large-color lock" data-color="red">
-						<div class="dark-red small-color lock"></div>
-					</div>
-					<div class="light-green large-color lock" data-color="green">
-						<div class="dark-green small-color lock"></div>
+				<h1 id="edit-label">Edit Shortcut</h1>
+				<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating">
+					<input class="mdc-text-field__input" id="input-drawer-name">
+					<div class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch" style="width: 38px;">
+							<label for="text-field-hero-input" class="mdc-floating-label mdc-floating-label--float-above">Label</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
 					</div>
 				</div>
+				
+				<div id="available-programs">
+					<p class="floating-box-label">Available Programs</p>
+					<div class="edit-programs-list">
+						<!-- Sample Icons -->
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon program-selected light-blue" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon program-selected light-blue" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+						<img class="edit-programs-list-icon" src="https://www.scdn.co/i/_global/favicon.png">
+						<img class="edit-programs-list-icon" src="https://code.visualstudio.com/favicon.ico">
+						<img class="edit-programs-list-icon" src="https://static.figma.com/app/icon/1/favicon.png">
+						<img class="edit-programs-list-icon" src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png">
+						<img class="edit-programs-list-icon" src="https://www.google.com/chrome/static/images/favicons/favicon-96x96.png">
+						<img class="edit-programs-list-icon" src="https://github.githubassets.com/pinned-octocat.svg">
+					</div>
+				</div>
+				<div id="button-container">
+					<button id="edit-programs-custom" class="dark-blue">Custom program</button>
+				</div>
+				<div id="edit-colors">
+					<p class="floating-box-label">Color Theme</p>
+					<div id="colors-list">
+						<div class="light-purple large-color lock" data-color="purple">
+							<div class="dark-purple small-color lock"></div>
+						</div>
+						<div class="light-blue large-color lock" data-color="blue">
+							<div class="dark-blue small-color lock"></div>
+						</div>
+						<div class="light-yellow large-color lock" data-color="yellow">
+							<div class="dark-yellow small-color lock"></div>
+						</div>
+						<div class="light-red large-color lock" data-color="red">
+							<div class="dark-red small-color lock"></div>
+						</div>
+						<div class="light-green large-color lock" data-color="green">
+							<div class="dark-green small-color lock"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Todo: Relocate This? -->
+			<script>
+				mdc.textField.MDCTextField.attachTo(
+					document.querySelector(".mdc-text-field")
+				);
+			</script>
+		</div>
+		<div id="timer" hidden>
+			<div id="timer-container">
+				<!-- Work (25 min) -->
+				<button class="mdc-button" onclick="setTime(25,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label time-button">Work</span>
+				</button>
+				<!-- Short Break (5 Min) -->
+				<button class="mdc-button" onclick="setTime(5,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label time-button">Short Break</span>
+				</button>
+
+				<!-- Long Break (10 Min) -->
+				<button class="mdc-button" onclick="setTime(10,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label time-button">Long Break</span>
+				</button>
+
+				<h2>
+					<div id="timer-frame">25:00</div>
+				</h2>
+				<!-- start button -->
+				<button id="start-button" class="mdc-button mdc-button--raised" onclick="startTimer()">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Start</span>
+				</button>
+				<!-- stop button -->
+				<button id="stop-button" class="mdc-button mdc-button--outlined" onclick="stopTimer()">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Stop</span>
+				</button>
+			</div>
+			<div id="timer-log">
+				<h3>Log:</h3>
+				<div id="timer-log-frame"></div>
 			</div>
 		</div>
-		
+
+		<div id="schedule" hidden>
+			<h1>
+				Upcoming Assignments:
+			</h1>
+			<div id="schedule-content"></div>
+		</div>
 	</div>
-
-	<script>
-		mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-	</script>
-
 </body>
 
 </html>
