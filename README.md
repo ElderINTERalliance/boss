@@ -12,7 +12,8 @@ Features:
 	- [ ] Make app preview update from content
 	- [ ] Make app preview window start from edit button
 	- [ ] Make goToElement detect when a non-header item was clicked and not modify the header.
-	- [ ] Be able to write to the database.
+	- [x] Be able to write to the database.
+	- [ ] Add option for different color panes.
 	
 
 To install this app locally, follow the following steps:

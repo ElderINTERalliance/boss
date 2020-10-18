@@ -38,6 +38,67 @@ const defaultSettings = {
 			"src": "https://www.google.com",
 			"protocol": "browser"
 		},
+	},
+	"Study & Chill":{
+		"Quizlet":{
+			"icon": "https://quizlet.com/favicon.ico",
+			"src": "https://quizlet.com/",
+			"protocol": "browser"
+		},
+		"Spotify": {
+			"icon": "https://www.scdn.co/i/_global/favicon.png",
+			"src": "https://www.spotify.com/us/",
+			"protocol": "browser"
+		}
+	},
+	"Digital Labs":{
+		"Zoom":{
+			"icon": "https://images-na.ssl-images-amazon.com/images/I/61DZY6oW0PL.png",
+			"src": "https://www.zoom.us",
+			"protocol": "browser"
+		},
+		"Pearson": {
+			"icon": "https://www.pearsonmylabandmastering.com/northamerica/assets/images/favicon/default/favicon.ico",
+			"src": "https://www.pearsonmylabandmastering.com/northamerica/",
+			"protocol": "browser"
+		},
+		"Pearson": {
+			"icon": "https://www.pearsonmylabandmastering.com/northamerica/assets/images/favicon/default/favicon.ico",
+			"src": "https://www.pearsonmylabandmastering.com/northamerica/",
+			"protocol": "browser"
+		}
+	},
+	"Spanish 3": {
+		"Homework":{
+			"icon": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1145/logo/favicon.ico",
+			"src": "https://elderhs.myschoolapp.com/app/student#studentmyday/assignment-center",
+			"protocol": "browser"
+		},
+		"Duolingo":{
+			"icon": "https://cdn.jim-nielsen.com/ios/512/duolingo-2019-01-02.png",
+			"src": "https://www.duolingo.com/learn",
+			"protocol": "browser"
+		},
+		"StudySpanish":{
+			"icon": "https://studyspanish.com/favicon.ico",
+			"src": "https://studyspanish.com/my-account",
+			"protocol": "browser"
+		},
+		"VHL":{
+			"icon": "https://www.vhlcentral.com/favicon-32x32.png",
+			"src": "https://www.vhlcentral.com",
+			"protocol": "browser"
+		},
+		"Quizlet":{
+			"icon": "https://quizlet.com/favicon.ico",
+			"src": "https://quizlet.com/",
+			"protocol": "browser"
+		},
+		"Zoom":{
+			"icon": "https://images-na.ssl-images-amazon.com/images/I/61DZY6oW0PL.png",
+			"src": "https://www.zoom.us",
+			"protocol": "browser"
+		},
 	}
 };
 
