@@ -15,14 +15,16 @@ function controlCountdown(state) {
 		// This modifies a variable declared at
 		// the top of this script.
 		mainLoop = setInterval(countdown, 1000);
+		// account for the startup time of the interval
+		countdown();
 	} else {
 		clearInterval(mainLoop);
 	}
 }
 
 function countdown() {
-    // TODO - make this not dependant on interval,
-    // and depend on system time instead
+	// TODO - make this not dependant on interval,
+	// and depend on system time instead
 	displayTime(totalMins, totalSecs);
 	changeTime(0, -1);
 }
@@ -46,6 +48,7 @@ function setTime(mins, secs) {
 	totalMins = 0;
 	totalSecs = 0;
 	changeTime(mins, secs);
+	displayTime(totalMins, totalSecs);
 }
 
 function zeroPad(num) {
@@ -54,4 +57,24 @@ function zeroPad(num) {
 	} else {
 		return `${num}`;
 	}
+}
+
+// TODO - make it so that clicking start button twice
+// does not mess up the timer
+function startTimer() {
+	controlCountdown(true);
+	let startBtn = document.getElementById("start-button");
+	startBtn.className = "mdc-button mdc-button--outlined";
+
+	let stopBtn = document.getElementById("stop-button");
+	stopBtn.className = "mdc-button mdc-button--raised";
+}
+
+function stopTimer() {
+	controlCountdown(false);
+	let startBtn = document.getElementById("start-button");
+	startBtn.className = "mdc-button mdc-button--raised";
+
+	let stopBtn = document.getElementById("stop-button");
+	stopBtn.className = "mdc-button mdc-button--outlined";
 }

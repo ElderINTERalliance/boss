@@ -98,10 +98,10 @@
 						<div class="mdc-notched-outline__trailing"></div>
 					</div>
 				</div>
-				<br>
-				<br>
+				<br />
+				<br />
 				<div class="mdc-text-field mdc-text-field--outlined">
-					<input class="mdc-text-field__input" id="input-src">
+					<input class="mdc-text-field__input" id="input-src" />
 					<div class="mdc-notched-outline">
 						<div class="mdc-notched-outline__leading"></div>
 						<div class="mdc-notched-outline__notch">
@@ -110,10 +110,10 @@
 						<div class="mdc-notched-outline__trailing"></div>
 					</div>
 				</div>
-				<br>
-				<br>
+				<br />
+				<br />
 				<div class="mdc-text-field mdc-text-field--outlined">
-					<input class="mdc-text-field__input" id="input-icon-path">
+					<input class="mdc-text-field__input" id="input-icon-path" />
 					<div class="mdc-notched-outline">
 						<div class="mdc-notched-outline__leading"></div>
 						<div class="mdc-notched-outline__notch">
@@ -124,8 +124,8 @@
 				</div>
 				<!-- Technically you shouldn't use br to do spacing like this,
 				     but I don't have a lot of time to waste fiddling with css -->
-				<br>
-				<br>
+				<br />
+				<br />
 				<div class="mdc-touch-target-wrapper">
 					<button class="mdc-button mdc-button--touch" id="preview-drawer">
 						<div class="mdc-button__ripple"></div>
@@ -139,7 +139,6 @@
 						<span class="mdc-button__label">Submit</span>
 					</button>
 				</div>
-
 			</div>
 		</div>
 
@@ -151,27 +150,39 @@
 		</script>
 
 		<div id="timer">
-			<div id="timer-frame">
-				25:00
+			<div id="timer-container">
+				<!-- Work (25 min) -->
+				<button class="mdc-button" onclick="setTime(25,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Work</span>
+				</button>
+				<!-- Short Break (5 Min) -->
+				<button class="mdc-button" onclick="setTime(5,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Short Break</span>
+				</button>
+
+				<!-- Long Break (10 Min) -->
+				<button class="mdc-button" onclick="setTime(10,0)">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Long Break</span>
+				</button>
+				
+				<h2>
+					<div id="timer-frame">25:00</div>
+				</h2>
+				<!-- start button -->
+				<button id="start-button" class="mdc-button mdc-button--raised" onclick="startTimer()">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Start</span>
+				</button>
+				<!-- stop button -->
+				<button id="stop-button" class="mdc-button mdc-button--outlined" onclick="stopTimer()">
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">Stop</span>
+				</button>
+
 			</div>
-			<br>
-			<button onclick="controlCountdown(true)">
-				Start
-			</button>
-			<br>
-			<button onclick="controlCountdown(false)">
-				Stop
-			</button>
-			<br> <br>
-			<button onclick="setTime(25,0)">
-				Work (25 Min)
-			</button>
-			<button onclick="setTime(5,0)">
-				Short Break (5 Min)
-			</button>
-			<button onclick="setTime(10,0)">
-				Long Break (10 Min)
-			</button>
 		</div>
 	</div>
 </body>

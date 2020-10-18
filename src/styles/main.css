@@ -12,6 +12,9 @@
 	--nav-default: #edf0f8;
 	--nav-selected: #f0dede;
 
+	/* timer background */
+	--timer-background: #d3bef0;
+
 	/* Shortcut Colors */
 	--light-purple: #dfcdfa;
 	--dark-purple: #9d53fd;
@@ -44,6 +47,10 @@ h1 {
 	font-size: 36px;
 	color: #3d3f44;
 	display: inline-block;
+}
+
+h2 {
+	padding: 0px;
 }
 
 .icon {
@@ -282,6 +289,22 @@ h2 {
 
 /* Timer: */
 #timer {
+	padding: 0px;
 	margin: auto;
 	text-align: center;
+}
+
+#timer-container > h2 {
+	font-size: 75px;
+	color: #141414;
+	padding-bottom: 10px;
+}
+
+#timer-container > mdc-button {
+	background: red;
+}
+
+#timer-container {
+	padding: 10px;
+	background: var(--timer-background);
 }
