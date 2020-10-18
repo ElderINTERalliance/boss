@@ -14,6 +14,7 @@
 	<script src="renderer.js" defer></script>
 	<script src="app-drawer-renderer.js" defer></script>
 	<script src="timer-renderer.js" defer></script>
+	<script src="schedule-renderer.js" defer></script>
 	<script src="" defer></script>
 	<link rel="stylesheet" href="styles/main.css" />
 	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
@@ -28,6 +29,9 @@
 		</div>
 		<div class="nav-item" onclick="goToElement('timer', this)">
 			Timer
+		</div>
+		<div class="nav-item" onclick="goToElement('schedule', this)">
+			Schedule	
 		</div>
 	</div>
 
@@ -154,18 +158,18 @@
 				<!-- Work (25 min) -->
 				<button class="mdc-button" onclick="setTime(25,0)">
 					<div class="mdc-button__ripple"></div>
-					<span class="mdc-button__label">Work</span>
+					<span class="mdc-button__label time-button">Work</span>
 				</button>
 				<!-- Short Break (5 Min) -->
 				<button class="mdc-button" onclick="setTime(5,0)">
 					<div class="mdc-button__ripple"></div>
-					<span class="mdc-button__label">Short Break</span>
+					<span class="mdc-button__label time-button">Short Break</span>
 				</button>
 
 				<!-- Long Break (10 Min) -->
 				<button class="mdc-button" onclick="setTime(10,0)">
 					<div class="mdc-button__ripple"></div>
-					<span class="mdc-button__label">Long Break</span>
+					<span class="mdc-button__label time-button">Long Break</span>
 				</button>
 
 				<h2>
@@ -186,6 +190,10 @@
 				<h3>Log:</h3>
 				<div id="timer-log-frame"></div>
 			</div>
+		</div>
+
+		<div id="schedule"> 
+			<div id="schedule-content"></div>
 		</div>
 	</div>
 </body>

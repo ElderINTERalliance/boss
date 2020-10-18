@@ -3,8 +3,8 @@
 // Run on page load:
 // let homeElement = document.getElementsByClassName("nav-item")[0];
 // goToElement("home-view", homeElement);
-let homeElement = document.getElementsByClassName("nav-item")[1];
-goToElement("timer", homeElement);
+let homeElement = document.getElementsByClassName("nav-item")[2];
+goToElement("schedule", homeElement);
 
 function goToElement(name, navElement) {
 	// Hide all elements
