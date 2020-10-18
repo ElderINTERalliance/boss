@@ -13,6 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet" />
 	<script src="renderer.js" defer></script>
 	<script src="app-drawer-renderer.js" defer></script>
+	<script src="timer-renderer.js" defer></script>
 	<script src="" defer></script>
 	<link rel="stylesheet" href="styles/main.css" />
 	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
@@ -25,8 +26,8 @@
 		<div class="nav-item" onclick="goToElement('home-view', this)">
 			Home
 		</div>
-		<div class="nav-item" onclick="goToElement('schedule', this)">
-			Schedule
+		<div class="nav-item" onclick="goToElement('timer', this)">
+			Timer
 		</div>
 	</div>
 
@@ -149,55 +150,28 @@
 			);
 		</script>
 
-		<div id="schedule">
-			This is where the schedule would be! <br />
-			<br />
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-			tincidunt libero nec urna volutpat, eu volutpat enim viverra.
-			Vestibulum quis velit vitae libero posuere cursus at in ligula.
-			Pellentesque varius viverra risus, eget iaculis felis consequat
-			nec. Nullam sed nunc malesuada, tempor ipsum et, commodo nisi.
-			In auctor finibus lacus, a pharetra tellus pulvinar molestie.
-			Maecenas at porttitor sem. Aliquam sagittis semper nisl id
-			efficitur. Aenean commodo mattis dignissim. Maecenas nec urna ac
-			neque rutrum rutrum sed sed nisi. Mauris malesuada luctus urna,
-			ac blandit sem rhoncus at. Sed posuere nulla est, eget congue
-			augue ultrices vitae. Aenean ac pharetra enim. Quisque ut nisi
-			ipsum. Interdum et malesuada fames ac ante ipsum primis in
-			faucibus. Ut lacinia nisi et purus fringilla, non consectetur
-			elit cursus. Nam varius est in tincidunt venenatis.
-			<br />
-			<br />
-			Curabitur lorem ligula, semper nec dignissim sit amet, rutrum
-			non libero. Interdum et malesuada fames ac ante ipsum primis in
-			faucibus. Aliquam placerat finibus libero. Sed ac est erat.
-			Quisque non mi ipsum. Aliquam quam ex, consequat non bibendum
-			eget, vehicula at ex. Integer lobortis arcu eu orci sodales
-			pulvinar. Donec ac enim nisi. Aliquam convallis lacus nec
-			pretium euismod.
-			<br />
-			<br />
-			Sed eleifend magna libero, vitae fermentum nibh malesuada ut.
-			Fusce id felis at dui porttitor auctor. Nullam et ex eget sapien
-			accumsan scelerisque. Quisque lorem erat, condimentum dignissim
-			nunc et, aliquet blandit augue. Vestibulum congue, quam ut
-			interdum tristique, enim nulla feugiat nulla, in feugiat ante
-			urna ut elit. In ex nulla, tempor eu gravida sit amet, laoreet
-			sit amet quam. Ut egestas ex vel dui pretium accumsan. Nunc vel
-			porta ante.
-			<br />
-			<br />
-			Vestibulum ac nisl tristique, dapibus massa ac, rhoncus purus.
-			Duis elit est, varius sit amet hendrerit id, venenatis nec
-			sapien. Donec ut laoreet odio. Fusce convallis turpis sed
-			consequat interdum. Donec vestibulum arcu quam, nec tincidunt
-			turpis ultricies id. Nunc consectetur a ex in aliquam. Class
-			aptent taciti sociosqu ad litora torquent per conubia nostra,
-			per inceptos himenaeos. Maecenas tempor nibh ac mattis
-			tincidunt. Nunc nulla lorem, tincidunt sit amet condimentum a,
-			molestie vitae lorem. Sed eget eros non nisl tempor venenatis.
-			Aenean lacinia purus quis libero dictum, vitae condimentum
-			turpis iaculis.
+		<div id="timer">
+			<div id="timer-frame">
+				25:00
+			</div>
+			<br>
+			<button onclick="controlCountdown(true)">
+				Start
+			</button>
+			<br>
+			<button onclick="controlCountdown(false)">
+				Stop
+			</button>
+			<br> <br>
+			<button onclick="setTime(25,0)">
+				Work (25 Min)
+			</button>
+			<button onclick="setTime(5,0)">
+				Short Break (5 Min)
+			</button>
+			<button onclick="setTime(10,0)">
+				Long Break (10 Min)
+			</button>
 		</div>
 	</div>
 </body>

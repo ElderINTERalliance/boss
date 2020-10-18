@@ -1,10 +1,10 @@
 // This is the main renderer.js, for general use
 
 // Run on page load:
-let homeElement = document.getElementsByClassName("nav-item")[0];
-goToElement("home-view", homeElement);
-// let homeElement = document.getElementsByClassName("nav-item")[1];
-// goToElement("staging", homeElement);
+// let homeElement = document.getElementsByClassName("nav-item")[0];
+// goToElement("home-view", homeElement);
+let homeElement = document.getElementsByClassName("nav-item")[1];
+goToElement("timer", homeElement);
 
 function goToElement(name, navElement) {
 	// Hide all elements
