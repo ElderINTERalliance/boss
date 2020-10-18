@@ -306,7 +306,8 @@ h2 {
 
 #timer-container {
 	padding: 10px;
-	background: var(--timer-background);
+	background: rgb(211,190,240);
+	background: linear-gradient(259deg, rgba(211,190,240,1) 0%, rgba(192,158,240,1) 19%, rgba(169,128,227,1) 50%, rgba(196,165,240,1) 84%, rgba(211,190,240,1) 100%);
 }
 
 #timer-log {
