@@ -3,11 +3,11 @@
 
 	/* These variables are used by renderer.js 
        for styling nav elements */
-	--nav-default: #edf0f8;
+	--nav-default: #ffffff;
 	--nav-selected: #f0dede;
 
 	/* Navbar height */
-	--nav-height: 50px;
+	--nav-height: 25px;
 
 	/* timer background */
 	--timer-background: #d3bef0;
@@ -228,9 +228,9 @@ h2 {
 /* Navigation Bar, at the top of the page */
 
 #nav-bar {
-	border: 2px solid;
-	border-color: lightgray;
-	background: var(--background-light);
+	/* border: 2px solid;
+	border-color: lightgray; */
+	background: var(--foreground-light);
 	display: table;
 	table-layout: fixed;
 	width: 100%;
@@ -248,6 +248,9 @@ h2 {
 	text-align: center;
 	overflow: hidden;
 	cursor: pointer;
+	color: #3D3F44;
+	box-sizing: border-box;
+	background: var(--nav-default);
 }
 
 /* 

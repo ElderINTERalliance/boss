@@ -23,12 +23,12 @@ function goToElement(name, navElement) {
 	if (navElement) {
 		sections = document.getElementsByClassName("nav-item");
 		Object.values(sections).forEach((element) => {
-			element.style.background = "var(--nav-default)";
+			element.style.borderBottom = "none";
 		});
 	}
 
 	// Highlight selected
-	if (navElement) navElement.style.background = "var(--nav-selected)";
+	if (navElement) navElement.style.borderBottom = "2px #3D3F44 solid";
 }
 
 document.querySelectorAll(".edit-programs-list-icon").forEach(element => {
