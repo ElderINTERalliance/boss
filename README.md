@@ -1,5 +1,5 @@
 # BOSS
-## Better Online School System
+## Better Online School Setup
 
 A series of tools to help students succeed in online environments
 
