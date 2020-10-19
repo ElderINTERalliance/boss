@@ -28,6 +28,7 @@ function countdown() {
 	// TODO - make this not dependant on interval,
 	// and depend on system time instead
 	displayTime(totalMins, totalSecs);
+	if (totalSecs==0&&totalMins==0) stopTimer();
 	changeTime(0, -1);
 }
 
@@ -69,9 +70,11 @@ function startTimer() {
 	controlCountdown(true);
 	let startBtn = document.getElementById("start-button");
 	startBtn.className = "mdc-button mdc-button--outlined";
+	startBtn.disabled = true;
 
 	let stopBtn = document.getElementById("stop-button");
 	stopBtn.className = "mdc-button mdc-button--raised";
+	stopBtn.disabled = false;
 
 	startMins = totalMins;
 	startSecs = totalSecs;
@@ -81,9 +84,11 @@ function stopTimer() {
 	controlCountdown(false);
 	let startBtn = document.getElementById("start-button");
 	startBtn.className = "mdc-button mdc-button--raised";
+	startBtn.disabled = false;
 
 	let stopBtn = document.getElementById("stop-button");
 	stopBtn.className = "mdc-button mdc-button--outlined";
+	stopBtn.disabled = true;
 
 	// frame.textContent = secsRunning;
 	log(startMins - totalMins, startSecs - totalSecs);
