@@ -1,7 +1,9 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const preferences = require("./preferences-handler");
-// Uncomment for release, keep commented for development
+// Live Reload
+// Comment for release, keep uncommented for development
+// require('electron-reload')(__dirname);
 Menu.setApplicationMenu(false);
 
 function createWindow() {

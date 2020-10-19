@@ -8,8 +8,8 @@ goToElement("home-view", homeElement);
 
 function goToElement(name, navElement) {
 	// Hide all elements
-	let content = document.getElementById("content");
-	let elements = content.childNodes;
+	// let content = document.getElementById("content");
+	let elements = document.querySelectorAll("body > div:not(#nav-bar)");
 	for (let i = 0; i < elements.length; i++) {
 		elements[i].hidden = true;
 	}
