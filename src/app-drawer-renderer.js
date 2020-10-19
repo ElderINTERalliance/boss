@@ -20,7 +20,6 @@ function readUserData() {
 // I'm using fs to read files, because the `get`
 // function from electron-json-storage was acting weird
 function getUserPreferences() {
-	console.log(JSON.parse(readUserData()));
 	return JSON.parse(readUserData());
 }
 
@@ -56,7 +55,6 @@ function parsePreferences(data) {
 	var root = document.createElement("div");
 	root.className = "drawer-container"
 	Object.keys(data).forEach((drawer) => {
-		console.log(data[drawer]);
 		root.append(createDrawer(drawer, data[drawer]));
 	});
 	return root;
