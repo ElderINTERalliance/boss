@@ -20,6 +20,7 @@ function readUserData() {
 // I'm using fs to read files, because the `get`
 // function from electron-json-storage was acting weird
 function getUserPreferences() {
+	console.log(JSON.parse(readUserData()));
 	return JSON.parse(readUserData());
 }
 
@@ -55,13 +56,14 @@ function parsePreferences(data) {
 	var root = document.createElement("div");
 	root.className = "drawer-container"
 	Object.keys(data).forEach((drawer) => {
+		console.log(data[drawer]);
 		root.append(createDrawer(drawer, data[drawer]));
 	});
 	return root;
 }
 
 function createDrawer(drawerName, drawerContents) {
-	let div = initializeDrawerElement();
+	let div = initializeDrawerElement(drawerContents.color);
 
 	// Add function to Launch all apps
 	let launchAll = div.getElementsByClassName("launch-button")[0];
@@ -75,7 +77,7 @@ function createDrawer(drawerName, drawerContents) {
 
 	// Populate drawer with app icons
 	let body = div.getElementsByClassName("shortcut-card-programs")[0];
-	body.append(createDivFromIcons(drawerContents));
+	body.append(createDivFromIcons(drawerContents.programs));
 	return div;
 }
 
@@ -87,17 +89,17 @@ function openAllApps(clicked) {
 	});
 }
 
-function initializeDrawerElement() {
+function initializeDrawerElement(color = "purple") {
 	let div = document.createElement("div");
 	div.innerHTML += `
-	<div class="shortcut-card-home">
+	<div class="shortcut-card-home light-${color}">
 		<div class="shortcut-card-icons">
-			<div class="icon launch-button" id="launch">
+			<div class="icon launch-button dark-${color}" id="launch">
 				<i class="material-icons-round md-48">
 					launch
 				</i>
 			</div>
-			<div class="icon edit-button" id="edit">
+			<div class="icon edit-button dark-${color}" id="edit">
 				<i class="material-icons-round md-48">
 					edit
 				</i>
@@ -105,22 +107,24 @@ function initializeDrawerElement() {
 		</div>
 		<div class="shortcut-card-programs">
 		</div>
-		<h2 class="shortcut-card-label">
+		<h2 class="shortcut-card-label dark-${color}">
 		</h2>
 	</div>`;
 	return div;
 }
 
-function createDivFromIcons(icons) {
+function createDivFromIcons(programs) {
 	var div = document.createElement("div");
-	// from the user json, each icon will have
-	// at least a url, app name, src, and protocol
-	Object.keys(icons).forEach((appName) => {
-		let app = icons[appName];
-		let iconURL = app["icon"];
-		let src = app["src"];
-		let protocol = app["protocol"];
-		div.innerHTML += createIconElement(iconURL, appName, src, protocol);
+	programs.forEach((icons) => {
+		// from the user json, each icon will have
+		// at least a url, app name, src, and protocol
+		Object.keys(icons).forEach((appName) => {
+			let app = icons[appName];
+			let iconURL = app["icon"];
+			let src = app["src"];
+			let protocol = app["protocol"];
+			div.innerHTML += createIconElement(iconURL, appName, src, protocol);
+		});
 	});
 	return div;
 }
