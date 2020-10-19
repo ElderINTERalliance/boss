@@ -1,16 +1,20 @@
 // This is the renderer file for functions related
 // to the App Drawer
 
+const child = require('child_process').execFile;
+const path = require('path');
 // const app = require("electron");
 const preferences = require("./preferences-handler");
 const storage = require("electron-json-storage");
 const electron = require("electron");
 const fs = require("fs");
 const { projectName } = require("./preferences-handler");
+const { shell } = require('electron');
+const { exec } = require('child_process');
 
-const path = storage.getDefaultDataPath();
+const defaultPath = storage.getDefaultDataPath();
 // TODO - Make file path work across operating systems
-const storagePath = `${path}\\${preferences.projectName}.json`;
+const storagePath = `${defaultPath}\\${preferences.projectName}.json`;
 
 // Functionalized for easy future re-implementation
 function readUserData() {
@@ -118,17 +122,25 @@ function createDivFromIcons(programs) {
 		// at least a url, app name, src, and protocol
 		Object.keys(icons).forEach((appName) => {
 			let app = icons[appName];
-			let iconURL = app["icon"];
 			let src = app["src"];
 			let protocol = app["protocol"];
-			div.innerHTML += createIconElement(iconURL, appName, src, protocol);
+			let iconURL = app["icon"];
+			if (iconURL != undefined) {
+				div.innerHTML += createIconElement(appName, src, protocol, iconURL);
+			} else {
+				div.innerHTML += createIconElement(appName, src, protocol);
+			}
 		});
 	});
 	return div;
 }
 
-function createIconElement(url, title = "", src, protocol) {
+function createIconElement(title = "", src, protocol, url = undefined) {
 	let onclick = `onclick="openApp('${src}', '${protocol}')"`;
+	if (url === undefined) {
+		var parseURL = new URL(src);
+		return `<img class="shortcut-card-program-icon" ${onclick} src="https://icons.duckduckgo.com/ip3/${parseURL.hostname}.ico" title="${title}"/>`;
+	}
 	return `<img class="shortcut-card-program-icon" ${onclick} src="${url}" title="${title}"/>`;
 }
 
@@ -137,10 +149,33 @@ function openApp(src, protocol) {
 	if (protocol == "browser") {
 		openUrlInBrowser(src);
 	}
+	if (protocol == "program") {
+		openProgram(src);
+	}
+	if (protocol == "shortcut") {
+		openShortcut(src);
+	}
 }
 
 function openUrlInBrowser(url) {
 	electron.shell.openExternal(url);
+}
+
+function openProgram(executablePath) {
+	console.log(executablePath);
+	child(executablePath, function(err, data) {
+		if(err){
+		console.error(err);
+		return;
+		}
+	});
+}
+
+function openShortcut(shortcutPath) {
+	// TODO: Add support for Windows Shortcuts
+	console.log(shortcutPath);
+	console.log("Shortcuts are not yet supported. Support is planned for a future version");
+	shell.readShortcutLink(shortcutPath);
 }
 
 // ----------

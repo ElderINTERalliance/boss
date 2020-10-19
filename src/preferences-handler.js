@@ -12,35 +12,33 @@ const defaultSettings = {
         "programs": [
             {
                 "Spotify": {
-                    "icon": "https://www.scdn.co/i/_global/favicon.png",
-                    "src": "https://www.spotify.com/us/",
+                    "src": "https://play.spotify.com/",
                     "protocol": "browser"
                 }
             },
             {
-                "VSCode": {
+                "VS Code": {
                     "icon": "https://code.visualstudio.com/favicon.ico",
-                    "src": "https://example.com",
-                    "protocol": "browser"
+                    "src": "C:/Users/Kevin Long/AppData/Local/Programs/Microsoft VS Code/Code.exe",
+                    "protocol": "program"
                 }
             },
             {
                 "Figma": {
-                    "icon": "https://static.figma.com/app/icon/1/favicon.png",
-                    "src": "https://www.figma.com",
-                    "protocol": "browser"
+                    "icon": "https://icons.duckduckgo.com/ip3/www.figma.com.ico",
+                    "src": "C:/Users/Kevin Long/AppData/Local/Figma/Figma.exe",
+                    "protocol": "program"
                 }
             },
             {
                 "Slack": {
-                    "icon": "https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png",
-                    "src": "https://slack.com",
-                    "protocol": "browser"
+                    "icon": "https://icons.duckduckgo.com/ip3/www.slack.com.ico",
+                    "src": "C:/Users/Kevin Long/AppData/Local/slack/slack.exe",
+                    "protocol": "program"
                 }
             },
             {
                 "Github": {
-                    "icon": "https://github.githubassets.com/pinned-octocat.svg",
                     "src": "https://github.com",
                     "protocol": "browser"
                 }
@@ -48,8 +46,8 @@ const defaultSettings = {
             {
                 "Chrome": {
                     "icon": "https://www.google.com/chrome/static/images/favicons/favicon-96x96.png",
-                    "src": "https://www.google.com",
-                    "protocol": "browser"
+                    "src": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+                    "protocol": "program"
                 }
             }
         ]
@@ -59,14 +57,12 @@ const defaultSettings = {
         "programs": [
             {
                 "Quizlet": {
-                    "icon": "https://quizlet.com/favicon.ico",
                     "src": "https://quizlet.com/",
                     "protocol": "browser"
                 }
             },
             {
                 "Spotify": {
-                    "icon": "https://www.scdn.co/i/_global/favicon.png",
                     "src": "https://www.spotify.com/us/",
                     "protocol": "browser"
                 }
@@ -78,21 +74,18 @@ const defaultSettings = {
         "programs": [
             {
                 "Zoom": {
-                    "icon": "https://images-na.ssl-images-amazon.com/images/I/61DZY6oW0PL.png",
                     "src": "https://www.zoom.us",
                     "protocol": "browser"
                 }
             },
             {
                 "Pearson": {
-                    "icon": "https://www.pearsonmylabandmastering.com/northamerica/assets/images/favicon/default/favicon.ico",
                     "src": "https://www.pearsonmylabandmastering.com/northamerica/",
                     "protocol": "browser"
                 }
             },
             {
                 "Pearson": {
-                    "icon": "https://www.pearsonmylabandmastering.com/northamerica/assets/images/favicon/default/favicon.ico",
                     "src": "https://www.pearsonmylabandmastering.com/northamerica/",
                     "protocol": "browser"
                 }
@@ -104,42 +97,36 @@ const defaultSettings = {
         "programs": [
             {
                 "Homework": {
-                    "icon": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1145/logo/favicon.ico",
                     "src": "https://elderhs.myschoolapp.com/app/student#studentmyday/assignment-center",
                     "protocol": "browser"
                 }
             },
             {
                 "Duolingo": {
-                    "icon": "https://cdn.jim-nielsen.com/ios/512/duolingo-2019-01-02.png",
                     "src": "https://www.duolingo.com/learn",
                     "protocol": "browser"
                 }
             },
             {
                 "StudySpanish": {
-                    "icon": "https://studyspanish.com/favicon.ico",
                     "src": "https://studyspanish.com/my-account",
                     "protocol": "browser"
                 }
             },
             {
                 "VHL": {
-                    "icon": "https://www.vhlcentral.com/favicon-32x32.png",
                     "src": "https://www.vhlcentral.com",
                     "protocol": "browser"
                 }
             },
             {
                 "Quizlet": {
-                    "icon": "https://quizlet.com/favicon.ico",
                     "src": "https://quizlet.com/",
                     "protocol": "browser"
                 }
             },
             {
                 "Zoom": {
-                    "icon": "https://images-na.ssl-images-amazon.com/images/I/61DZY6oW0PL.png",
                     "src": "https://www.zoom.us",
                     "protocol": "browser"
                 }
@@ -150,43 +137,38 @@ const defaultSettings = {
         "color": "green",
         "programs": [
             {
-                "Homework": {
-                    "icon": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1145/logo/favicon.ico",
-                    "src": "https://elderhs.myschoolapp.com/app/student#studentmyday/assignment-center",
-                    "protocol": "browser"
+                "Excel": {
+                    "icon": "https://c1-odc-15.cdn.office.net/start/s/161341441000_resources/favicon_excel.ico",
+                    "src": "C:/Program Files/Microsoft Office/root/Office16/EXCEL.EXE",
+                    "protocol": "program"
                 }
             },
             {
                 "Duolingo": {
-                    "icon": "https://cdn.jim-nielsen.com/ios/512/duolingo-2019-01-02.png",
                     "src": "https://www.duolingo.com/learn",
                     "protocol": "browser"
                 }
             },
             {
                 "StudySpanish": {
-                    "icon": "https://studyspanish.com/favicon.ico",
                     "src": "https://studyspanish.com/my-account",
                     "protocol": "browser"
                 }
             },
             {
                 "VHL": {
-                    "icon": "https://www.vhlcentral.com/favicon-32x32.png",
                     "src": "https://www.vhlcentral.com",
                     "protocol": "browser"
                 }
             },
             {
                 "Quizlet": {
-                    "icon": "https://quizlet.com/favicon.ico",
                     "src": "https://quizlet.com/",
                     "protocol": "browser"
                 }
             },
             {
                 "Zoom": {
-                    "icon": "https://images-na.ssl-images-amazon.com/images/I/61DZY6oW0PL.png",
                     "src": "https://www.zoom.us",
                     "protocol": "browser"
                 }
