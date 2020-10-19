@@ -5,15 +5,10 @@ A series of tools to help students succeed in online environments
 
 Features:
 
-- [ ] Podomoro timer
-- [ ] Schedule, with reminders
+- [x] Podomoro timer
+- [x] Schedule
+- [x] App Groups, that open on click
 - [ ] Task List
-- [ ] App Groups, that open on click
-	- [ ] Make app preview update from content
-	- [ ] Make app preview window start from edit button
-	- [ ] Make goToElement detect when a non-header item was clicked and not modify the header.
-	- [x] Be able to write to the database.
-	- [ ] Add option for different color panes.
 	
 
 To install this app locally, follow the following steps:
