@@ -15,8 +15,12 @@ const months = [
 	"Nov",
 	"Dec",
 ];
+var loaded = false;
 
-load(url);
+function loadOnClick() {
+	if (!loaded)
+	load(url);
+}
 
 // modified from https://stackoverflow.com/questions/10642289/return-html-content-as-a-string-given-url-javascript-function
 function load(theUrl) {
@@ -34,6 +38,7 @@ function load(theUrl) {
 	};
 	xmlhttp.open("GET", theUrl, false);
 	xmlhttp.send();
+	loaded = true;
 }
 
 function loadEvents(data) {
@@ -64,7 +69,7 @@ function loadEvents(data) {
 		addToSchedule(assignment);
     });
 
-	console.log(parsedList);
+	// console.log(parsedList);
 }
 
 // This is trash code but I don't have much time left
