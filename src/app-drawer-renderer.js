@@ -10,7 +10,9 @@ const electron = require("electron");
 const fs = require("fs");
 const { projectName } = require("./preferences-handler");
 const { shell } = require('electron');
+const { remote, app, nativeImage } = require('electron').remote;
 const { exec } = require('child_process');
+const { stringify } = require('querystring');
 
 const defaultPath = storage.getDefaultDataPath();
 // TODO - Make file path work across operating systems
@@ -34,6 +36,36 @@ function getUserPreferences() {
 // in the form of app drawers
 
 loadAppDrawers();
+
+
+// const desktopPath = path.normalize("C:\\Users\\Kevin Long\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code");//app.getPath ('desktop');
+// let filePaths = fs.readdirSync(desktopPath);
+// for (let filePath of filePaths) {
+// 	if (path.extname(filePath) == ".lnk") {
+// 		// app.getFileIcon(filePath)
+// 		var icon = shell.readShortcutLink(filePath)
+// 		.then
+// 		(
+// 			(icon) => {
+// 				icon = JSON.stringify(icon);
+// 				let div = document.createElement('div');
+// 				let img = document.createElement('img');
+// 				img.setAttribute('src', fileIcon.toDataURL());
+// 				let size = fileIcon.getSize();
+// 				img.setAttribute('width', size.width);
+// 				img.setAttribute('height', size.height);
+// 				div.appendChild(img);
+// 				div.appendChild(document.createTextNode(" " + path.basename(filePath)));
+// 				// For test purposes, add each file icon and name to the end of <body>
+// 				document.body.appendChild(div);
+// 			}
+// 		);
+// 	}
+// }
+
+const filePath = "C:\\Users\\Kevin Long\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\Visual Studio Code.lnk";
+var shortcut = shell.readShortcutLink(filePath);
+console.log(JSON.stringify(shortcut));
 
 document.getElementById("new-shortcut").addEventListener("click", () => {
 	editDrawer("");
@@ -163,10 +195,10 @@ function openUrlInBrowser(url) {
 
 function openProgram(executablePath) {
 	console.log(executablePath);
-	child(executablePath, function(err, data) {
-		if(err){
-		console.error(err);
-		return;
+	child(executablePath, function (err, data) {
+		if (err) {
+			console.error(err);
+			return;
 		}
 	});
 }
