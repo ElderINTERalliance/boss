@@ -2,15 +2,12 @@
 // to the App Drawer
 
 const child = require('child_process').execFile;
-const path = require('path');
 // const app = require("electron");
 const preferences = require("./preferences-handler");
 const storage = require("electron-json-storage");
 const electron = require("electron");
 const fs = require("fs");
-const { projectName } = require("./preferences-handler");
 const { shell } = require('electron');
-const { exec } = require('child_process');
 
 const defaultPath = storage.getDefaultDataPath();
 // TODO - Make file path work across operating systems
@@ -39,7 +36,6 @@ document.getElementById("new-shortcut").addEventListener("click", () => {
 	editDrawer("");
 });
 
-// console.log(document.querySelectorAll("#edit"))
 document.querySelectorAll("#edit").forEach((element) => {
 	element.onclick = function () {
 		editDrawer(this)
@@ -139,9 +135,12 @@ function createIconElement(title = "", src, protocol, url = undefined) {
 	let onclick = `onclick="openApp('${src}', '${protocol}')"`;
 	if (url === undefined) {
 		var parseURL = new URL(src);
-		return `<img class="shortcut-card-program-icon" ${onclick} src="https://icons.duckduckgo.com/ip3/${parseURL.hostname}.ico" title="${title}"/>`;
+		return `<img class="shortcut-card-program-icon" ${onclick} \ 
+				src="https://icons.duckduckgo.com/ip3/${parseURL.hostname}.ico"\
+				title="${title}"/>`;
 	}
-	return `<img class="shortcut-card-program-icon" ${onclick} src="${url}" title="${title}"/>`;
+	return `<img class="shortcut-card-program-icon" ${onclick} src="${url}" 
+			title="${title}"/>`;
 }
 
 function openApp(src, protocol) {
@@ -206,15 +205,9 @@ function openEditWindow(prefill) {
 	goToElement("edit-view");
 }
 
-function getLabelValue() {
-	// FIXME - Name implies text, but function returns html
-	return document.querySelector("#input-drawer-name");
-}
-
 function setLabelValue(value) {
 	var el = document.querySelector("#input-drawer-name");
 	el.value = value;
-	// el.prefill =
 }
 
 function getTitleOfEditButton(button) {
@@ -226,6 +219,8 @@ function getTitleOfEditButton(button) {
 		.getElementsByClassName("shortcut-card-label")[0]
 		.textContent
 }
+
+// These functions are for future use in the app menu system.
 
 // electron-json-storage had problems, and kept creating lock files
 // when I didn't want it to.

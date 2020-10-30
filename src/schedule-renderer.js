@@ -1,25 +1,10 @@
 const url =
 	"https://elderhs.myschoolapp.com/podium/feed/iCal.aspx?z=DHNXyPXuma0tTJX%2ble%2f18p%2fX5Eu1G0p0RXoK78NAIe4e3GH1vgNj0DzT8Ob7rbKHnMy2wmKLyv%2bg%2ffeuVoFb7g%3d%3d";
 const ical = require("ical");
-const months = [
-	"Jan",
-	"Feb",
-	"Mar",
-	"Apr",
-	"May",
-	"Jun",
-	"Jul",
-	"Aug",
-	"Sep",
-	"Oct",
-	"Nov",
-	"Dec",
-];
 var loaded = false;
 
 function loadOnClick() {
-	if (!loaded)
-	load(url);
+	if (!loaded) load(url);
 }
 
 // modified from https://stackoverflow.com/questions/10642289/return-html-content-as-a-string-given-url-javascript-function
@@ -42,34 +27,28 @@ function load(theUrl) {
 }
 
 function loadEvents(data) {
-	// let date1 = new Date("Mon Aug 24 2020 00:00:00 GMT-0400 (Eastern Daylight Time)")
-	// let date2 = new Date("Mon Aug 24 2020 00:00:00 GMT-0400 (Eastern Daylight Time)")
-	// console.log(date1.getTime());
-
 	let events = ical.parseICS(data);
-    var parsedList = [];
+	var parsedList = [];
 
-    // take string data and get important parts
+	// take string data and get important parts
 	Object.values(events).forEach((assignment) => {
 		let parsed = {};
 		parsed.start = assignment["start"];
 		parsed.summary = assignment["summary"];
 		parsed.description = assignment["description"];
 		parsedList.push(parsed);
-    });
-    
-    // Sort by date
+	});
+
+	// Sort by date
 	parsedList.sort((a, b) => {
 		// Turn your strings into dates, and then subtract them
 		// to get a value that is either negative, positive, or zero.
 		return new Date(b.start) - new Date(a.start);
-    });
+	});
 
 	Object.values(parsedList).forEach((assignment) => {
 		addToSchedule(assignment);
-    });
-
-	// console.log(parsedList);
+	});
 }
 
 // This is trash code but I don't have much time left
@@ -78,8 +57,8 @@ function addToSchedule(data) {
 	let header = document.createElement("h3");
 	let text = document.createElement("p");
 	let due = document.createElement("p");
-    due.className = "duedate";
-    assignment.className = "assignment"
+	due.className = "duedate";
+	assignment.className = "assignment";
 
 	header.textContent = data["summary"];
 

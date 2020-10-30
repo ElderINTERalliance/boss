@@ -3,12 +3,9 @@
 // Run on page load:
 let homeElement = document.getElementsByClassName("nav-item")[0];
 goToElement("home-view", homeElement);
-// let homeElement = document.getElementsByClassName("nav-item")[2];
-// goToElement("schedule", homeElement);
 
 function goToElement(name, navElement) {
 	// Hide all elements
-	// let content = document.getElementById("content");
 	let elements = document.querySelectorAll("body > div:not(#nav-bar)");
 	for (let i = 0; i < elements.length; i++) {
 		elements[i].hidden = true;
