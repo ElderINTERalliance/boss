@@ -3,7 +3,7 @@ const path = require("path");
 const preferences = require("./preferences-handler");
 // Live Reload
 // Comment for release, keep uncommented for development
-// require('electron-reload')(__dirname);
+// require('electron-reload')(__dirname, {ignored: [/src\/icons|[/\\]\./]});
 Menu.setApplicationMenu(false);
 
 function createWindow() {

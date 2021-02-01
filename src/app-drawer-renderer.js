@@ -134,6 +134,11 @@ function createDivFromIcons(programs) {
 function createIconElement(title = "", src, protocol, url = undefined) {
 	let onclick = `onclick="openApp('${src}', '${protocol}')"`;
 	if (url === undefined) {
+		if (protocol === 'shortcut') {
+			return `<img class="shortcut-card-program-icon" ${onclick} \ 
+				src="/icons/${title}.png"\
+				title="${title}"/>`;
+		}
 		var parseURL = new URL(src);
 		return `<img class="shortcut-card-program-icon" ${onclick} \ 
 				src="https://icons.duckduckgo.com/ip3/${parseURL.hostname}.ico"\
@@ -172,9 +177,10 @@ function openProgram(executablePath) {
 
 function openShortcut(shortcutPath) {
 	// TODO: Add support for Windows Shortcuts
+	// Update: They can now be opened but icons must be manually added
 	console.log(shortcutPath);
-	console.log("Shortcuts are not yet supported. Support is planned for a future version");
-	shell.readShortcutLink(shortcutPath);
+	console.log("Shortcuts are not yet fully supported. Support is planned for a future version");
+	shell.openPath(shortcutPath);
 }
 
 // ----------
