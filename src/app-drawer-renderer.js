@@ -239,7 +239,12 @@ document.querySelector("#exit-edit-pane").addEventListener('click', () => {
 function setLabelValue(value) {
 	var el = document.querySelector("#input-drawer-name");
 	el.value = value;
+	document.querySelector("#preview-pane .shortcut-card-label").innerHTML = value;
 }
+
+document.querySelector("#input-drawer-name").addEventListener('keyup', () => {
+	document.querySelector("#preview-pane .shortcut-card-label").innerHTML = document.querySelector("#input-drawer-name").value
+})
 
 function getTitleOfEditButton(button) {
 	// prettier-ignore
