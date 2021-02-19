@@ -5,6 +5,7 @@ let homeElement = document.getElementsByClassName("nav-item")[0];
 goToElement("home-view", homeElement);
 
 function goToElement(name, navElement) {
+
 	// Hide all elements
 	let elements = document.querySelectorAll("body > div:not(#nav-bar)");
 	for (let i = 0; i < elements.length; i++) {

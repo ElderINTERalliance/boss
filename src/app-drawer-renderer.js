@@ -41,6 +41,21 @@ document.getElementById("new-shortcut").addEventListener("click", () => {
 
 document.querySelectorAll("#edit").forEach((element) => {
 	element.onclick = function () {
+		let shortcutCard = this.closest(".shortcut-card-home");
+		shortcutCard.classList.toggle("lock");
+		shortcutCard.classList.toggle("needsLock");
+		shortcutCard.querySelectorAll(".lock").forEach(element => {
+			element.classList.toggle("lock");
+			element.classList.toggle("needsLock");
+		})
+		// this.classList.toggle("lock");
+		// this.classList.toggle("needLock");
+		// // this.closest(".launch-button").classList.toggle("lock");
+		// // this.closest(".launch-button").classList.toggle("needLock");
+		// this.closest(".shortcut-card-home").classList.toggle("lock");
+		// this.closest(".shortcut-card-home").classList.toggle("needLock");
+		// this.closest(".shortcut-card-label").classList.toggle("lock");
+		// this.closest(".shortcut-card-label").classList.toggle("needLock");
 		editDrawer(this)
 	};
 });
@@ -93,14 +108,14 @@ function openAllApps(clicked) {
 function initializeDrawerElement(color = "purple") {
 	let div = document.createElement("div");
 	div.innerHTML += `
-	<div class="shortcut-card-home light-${color}">
+	<div class="shortcut-card-home light-${color} lock">
 		<div class="shortcut-card-icons">
-			<div class="icon launch-button dark-${color}" id="launch">
+			<div class="icon launch-button dark-${color} lock" id="launch">
 				<i class="material-icons-round md-48">
 					launch
 				</i>
 			</div>
-			<div class="icon edit-button dark-${color}" id="edit">
+			<div class="icon edit-button dark-${color} lock" id="edit">
 				<i class="material-icons-round md-48">
 					edit
 				</i>
@@ -108,7 +123,7 @@ function initializeDrawerElement(color = "purple") {
 		</div>
 		<div class="shortcut-card-programs">
 		</div>
-		<h2 class="shortcut-card-label dark-${color}">
+		<h2 class="shortcut-card-label dark-${color} lock">
 		</h2>
 	</div>`;
 	return div;
@@ -213,6 +228,13 @@ function openEditWindow(prefill) {
 	}
 	goToElement("edit-view");
 }
+
+document.querySelector("#exit-edit-pane").addEventListener('click', () => {
+	document.querySelectorAll(".needsLock").forEach(element => {
+		element.classList.toggle("lock");
+		element.classList.toggle("needsLock");
+	})
+})
 
 function setLabelValue(value) {
 	var el = document.querySelector("#input-drawer-name");
