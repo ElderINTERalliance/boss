@@ -29,6 +29,8 @@
     --dark-red: #E16769;
     --light-green: #CBF4CD;
     --dark-green: #44CA42;
+    --light-contrast: #EDF0F8;
+    --dark-contrast: #3d3f44;
 
     /* Material Design Custom Colors */
 	--mdc-theme-primary: var(--dark-purple);
@@ -95,6 +97,19 @@
     color: var(--dark-green);
     border-color: var(--dark-green);
 }
+
+.light-contrast {
+    background: var(--light-contrast);
+    color: var(--light-contrast);
+    border-color: var(--dark-contrast);
+}
+
+.dark-contrast {
+    background: var(--dark-contrast);
+    color: var(--dark-contrast);
+    border-color: var(--dark-contrast);
+}
+
 
 body, html {
     font-family: 'Montserrat', sans-serif;
