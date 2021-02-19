@@ -8,10 +8,13 @@ const storage = require("electron-json-storage");
 const electron = require("electron");
 const fs = require("fs");
 const { shell } = require('electron');
+// const fileIconExtractor = require('file-icon-extractor');
 
 const defaultPath = storage.getDefaultDataPath();
 // TODO - Make file path work across operating systems
 const storagePath = `${defaultPath}\\${preferences.projectName}.json`;
+
+// fileIconExtractor.extract("C:\\Users\\eld-longkw\\AppData\\Local\\slack\\slack.exe", "C:\\Users\\eld-longkw\\Documents");
 
 // Functionalized for easy future re-implementation
 function readUserData() {

@@ -28,13 +28,7 @@ function goToElement(name, navElement) {
 	if (navElement) navElement.style.borderBottom = "2px #3D3F44 solid";
 }
 
-document.querySelectorAll(".edit-programs-list-icon").forEach(element => {
-	element.addEventListener('click', () => {
-		color = document.getElementById("edit-pane").dataset.color;
-		element.classList.toggle("program-selected");
-		element.classList.toggle(`light-${color}`)
-	})
-})
+// Moved Icon Selector to all-programs.js
 
 // Color Switcher
 

@@ -34,4 +34,23 @@ if (!fs.existsSync('src\\icons')) {
     fs.mkdirSync('src\\icons');
 
     icon.extract(programs, "src\\icons");
+
 }
+
+var icons = [];
+console.log(path.resolve("./src/icons"));
+icons.push(...recFindByExt(path.resolve("./src/icons"), "png"));
+icons.forEach(icon => {
+    document.querySelector(".edit-programs-list").innerHTML += `<img class="edit-programs-list-icon" src="${icon}" alt="${path.basename(icon, ".png")}" title="${path.basename(icon, ".png")}"/>`;
+})
+
+document.querySelectorAll(".edit-programs-list-icon").forEach(element => {
+	element.addEventListener('click', () => {
+		console.log("Hello, world!")
+		color = document.getElementById("edit-pane").dataset.color;
+		element.classList.toggle("program-selected");
+		element.classList.toggle(`light-${color}`)
+	})
+})
+
+
