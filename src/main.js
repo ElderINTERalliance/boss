@@ -3,7 +3,7 @@ const path = require("path");
 const preferences = require("./preferences-handler");
 // Live Reload
 // Comment for release, keep uncommented for development
-// require('electron-reload')(__dirname, {ignored: [/src\/icons|[/\\]\./]});
+require('electron-reload')(__dirname, {ignored: [/src\/icons|[/\\]\./]});
 Menu.setApplicationMenu(false);
 
 function createWindow() {
@@ -11,6 +11,7 @@ function createWindow() {
 	const mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
+		icon: "src/logo/bossLogo.png",
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
 			nodeIntegration: true,
@@ -23,7 +24,7 @@ function createWindow() {
 
 	// Open the DevTools.
 	// Comment for release, keep uncommented for development
-	// mainWindow.webContents.openDevTools();
+	mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
